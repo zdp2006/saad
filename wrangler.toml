@@ -1,0 +1,10 @@
+name = "saadanddanial"
+compatibility_date = "2025-05-01"
+
+[pages]
+# This enables Wrangler to know it's a Pages project
+# For future deploys: npx wrangler pages deploy dist
+
+[[pages.domains]]
+# Add your custom domain here after connecting in dashboard
+# domain = "saadanddanial.com"

@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --yellow: #FFDD00;
+  --red: #FF0033;
+  --black: #0A0A0A;
+  --white: #FFFFFF;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Bold, chaotic energy styles */
+.chaos-text {
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.yellow {
+  color: var(--yellow);
+  text-shadow: 4px 4px 0 #000;
+}
+
+.red {
+  color: var(--red);
+}
+
+.photo-grid img {
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.2s ease;
+  border: 8px solid #000;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+  z-index: 10;
+}
+
+.vlog-card {
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 6px solid #000;
+}
+
+.vlog-card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.5);
+}
+
+.cta-button {
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+.passport {
+  border: 12px solid #000;
+  box-shadow: 8px 8px 0 #FFDD00;
+  transform: rotate(-2deg);
+}
+
+.chaotic {
+  animation: slight-shake 0.3s infinite alternate ease-in-out;
+}
+
+@keyframes slight-shake {
+  from { transform: rotate(-1deg); }
+  to { transform: rotate(1deg); }
+}
+
+/* YouTube-style elements */
+.youtube-red {
+  background: #FF0033;
+}
+
+.section-label {
+  font-size: 13px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}

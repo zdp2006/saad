@@ -1,17 +1,401 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Saad & Danial | Pakistani Students in Germany">
+  <!-- LOUD NAV -->
+  <nav class="border-b-4 border-black bg-black text-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#FFDD00] text-black rounded-2xl flex items-center justify-center font-black text-3xl sm:text-4xl tracking-tighter">SD</div>
+        <div>
+          <div class="font-black text-2xl sm:text-3xl tracking-[-3px]">SAAD & DANIAL</div>
+          <div class="text-[9px] sm:text-[10px] text-white/50 -mt-1 tracking-[3px]">PAKISTAN → GERMANY</div>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center gap-4 text-sm font-bold">
+        <a href="#vlogs" class="px-6 py-3 hover:bg-white hover:text-black transition rounded-3xl">VLOGS</a>
+        <a href="#chaos" class="px-6 py-3 hover:bg-white hover:text-black transition rounded-3xl">THE CHAOS</a>
+        <a href="https://www.youtube.com/@saadanddanial9" target="_blank" 
+           class="px-8 py-3 bg-[#FFDD00] text-black rounded-3xl font-black flex items-center gap-2 hover:bg-white transition">
+          <span>WATCH ON YOUTUBE</span>
+        </a>
+      </div>
+
+      <div class="md:hidden">
+        <a href="https://www.youtube.com/@saadanddanial9" target="_blank" 
+           class="px-5 py-2.5 bg-[#FFDD00] text-black rounded-3xl text-sm font-black">
+          WATCH
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-black text-white pt-12 pb-16 px-5 border-b-8 border-[#FFDD00]">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="inline-block px-5 py-1.5 bg-[#FFDD00] text-black text-xs font-black tracking-[3px] rounded-full mb-6">
+        25K+ SUBSCRIBERS • KARACHI TO GERMANY
+      </div>
+      
+      <h1 class="text-[52px] sm:text-[68px] md:text-[88px] lg:text-[105px] leading-[0.82] font-black tracking-[-3.5px] sm:tracking-[-5px] mb-6 chaos-text">
+        TWO CHAOTIC<br>
+        <span class="yellow">PAKISTANI GUYS</span><br>
+        IN GERMANY.
+      </h1>
+      
+      <p class="max-w-md mx-auto text-xl sm:text-2xl text-white/80 mb-10 tracking-tight">
+        No filter. No fancy advice.<br>
+        Just real student life &amp; daily chaos.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
+        <a href="https://www.youtube.com/@saadanddanial9" target="_blank"
+           class="cta-button inline-flex items-center justify-center bg-[#FFDD00] hover:bg-white text-black px-8 py-4 rounded-3xl font-black text-lg tracking-[-0.5px] w-full sm:w-auto">
+          SUBSCRIBE ON YOUTUBE
+        </a>
+        <a href="#vlogs"
+           class="cta-button inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-3xl font-black text-lg tracking-[-0.5px] hover:bg-white hover:text-black w-full sm:w-auto">
+          WATCH THE CHAOS
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR PHOTO COLLAGE -->
+  <section id="chaos" class="bg-[#FFDD00] py-12 sm:py-16 px-5 border-b-8 border-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-8">
+        <div class="section-label text-black/60">THE FACES BEHIND THE CHAOS</div>
+        <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-[-3px] text-black">Saad &amp; Danial</h2>
+      </div>
+
+      <div class="photo-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3">
+        <img src="/images/saad-danial-1.jpg" alt="Saad & Danial at the Berlin Wall" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
+        <img src="/images/saad-danial-2.jpg" alt="Saad & Danial at a mountain viewpoint in Austria" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
+        <img src="/images/saad-danial-3.jpg" alt="Saad & Danial reviewing footage" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
+        <img src="/images/saad-danial-4.jpg" alt="Saad & Danial on a European street" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST VLOGS -->
+  <section id="vlogs" class="max-w-7xl mx-auto px-5 py-16 bg-white">
+    <div class="mb-8">
+      <div class="section-label text-red-600">LATEST FROM THE CHANNEL</div>
+      <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-[-3px]">What we've been up to</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a href="https://www.youtube.com/watch?v=GdBubpZBQpY" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden">
+        <div class="aspect-video bg-zinc-900 relative">
+          <img src="https://img.youtube.com/vi/GdBubpZBQpY/maxresdefault.jpg" class="w-full h-full object-cover" alt="A Real Day in the Life of a Broke Student in Germany">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
+              <span class="text-white text-3xl ml-1">▶</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-7 text-white">
+          <div class="font-black text-xl tracking-tight leading-none mb-2">A Real Day in the Life of a Broke Student in Germany!</div>
+          <div class="text-sm text-white/60 font-medium">1 month ago • 10K views</div>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=auYySwMaaXU" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden">
+        <div class="aspect-video bg-zinc-900 relative">
+          <img src="https://img.youtube.com/vi/auYySwMaaXU/maxresdefault.jpg" class="w-full h-full object-cover" alt="How We Came To Germany From Pakistan">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
+              <span class="text-white text-3xl ml-1">▶</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-7 text-white">
+          <div class="font-black text-xl tracking-tight leading-none mb-2">How We Came To Germany From Pakistan Ep.1</div>
+          <div class="text-sm text-white/60 font-medium">Apr 2026 • 25K views</div>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=kRHX6n4fTF4" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden">
+        <div class="aspect-video bg-zinc-900 relative">
+          <img src="https://img.youtube.com/vi/kRHX6n4fTF4/maxresdefault.jpg" class="w-full h-full object-cover" alt="Stopped at German Immigration">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
+              <span class="text-white text-3xl ml-1">▶</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-7 text-white">
+          <div class="font-black text-xl tracking-tight leading-none mb-2">Stopped at German Immigration | Part 2</div>
+          <div class="text-sm text-white/60 font-medium">Aug 2023 • 71K views</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- BOOK A CALL - Interactive -->
+  <section id="book-call" class="w-screen relative left-1/2 right-1/2 -translate-x-1/2 bg-black text-white py-24 border-y border-white/10">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-10 text-center">
+        <div class="section-label tracking-[3px] text-[#FFDD00] mb-3">1:1 CALLS WITH SAAD &amp; DANIAL</div>
+        <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-[-3px] leading-none">Book a Call</h2>
+        <p class="mt-4 text-xl text-white/70">Choose your session and pick a time that works for you.</p>
+      </div>
+
+      <!-- Booking Widget -->
+      <form id="booking-form" action="https://formspree.io/f/mail@saadanddaniyal.com" method="POST" class="bg-zinc-900 rounded-3xl p-8 md:p-10 border border-white/10">
+
+        <!-- Step 1: Service Selection -->
+        <div id="step-service" style="display: block;">
+          <h3 class="font-black text-2xl mb-6 tracking-tight">Service Selection</h3>
+          
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-bold tracking-widest mb-2 text-white/60">SERVICE *</label>
+              <select name="service" id="service" required class="w-full bg-zinc-950 border border-white/20 text-white rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#FFDD00] appearance-none pr-12" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%23FFDD00%27%3E%3Cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M19 9l-7 7-7-7%27/%3E%3C/svg%27'); background-position: right 1rem center; background-repeat: no-repeat; background-size: 1.25rem;">
+                <option value="">Select session duration</option>
+                <option value="15 minute session - $25">15 minute session — $25</option>
+                <option value="30 minute session - $45">30 minute session — $45</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold tracking-widest mb-2 text-white/60">EMPLOYEE *</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label class="flex items-center gap-3 bg-black border border-white/20 hover:border-[#FFDD00] rounded-2xl px-5 py-4 cursor-pointer has-[:checked]:border-[#FFDD00]">
+                  <input type="radio" name="employee" value="Danial Omer" required class="hidden">
+                  <div class="w-8 h-8 bg-[#FFDD00] text-black rounded-full flex items-center justify-center font-black text-sm flex-shrink-0">DO</div>
+                  <div>
+                    <div class="font-bold">Danial Omer</div>
+                    <div class="text-xs text-white/50">Pakistan → Germany</div>
+                  </div>
+                </label>
+                
+                <label class="flex items-center gap-3 bg-black border border-white/20 hover:border-[#FFDD00] rounded-2xl px-5 py-4 cursor-pointer has-[:checked]:border-[#FFDD00]">
+                  <input type="radio" name="employee" value="Saad Ashfaq" required class="hidden">
+                  <div class="w-8 h-8 bg-[#FFDD00] text-black rounded-full flex items-center justify-center font-black text-sm flex-shrink-0">SA</div>
+                  <div>
+                    <div class="font-bold">Saad Ashfaq</div>
+                    <div class="text-xs text-white/50">Pakistan → Germany</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="service-continue-btn"
+                  class="mt-8 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition">
+            CONTINUE<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+
+        <!-- Step 2: Calendar -->
+        <div id="step-calendar" class="hidden">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="font-black text-2xl tracking-tight">Choose a Date</h3>
+            <button type="button" id="back-to-service" class="text-sm text-white/60 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7 7-7" /></svg>Back</button>
+          </div>
+
+          <div class="bg-black rounded-3xl p-6 border border-white/10">
+            <div class="flex justify-between items-center mb-4 px-2">
+              <div class="font-bold text-lg">June 2026</div>
+            </div>
+            
+            <div class="grid grid-cols-7 gap-1 text-center text-sm mb-2 text-white/50">
+              <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+            </div>
+            
+            <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center"></div>
+          </div>
+
+          <input type="hidden" name="date" id="hidden-date">
+          <button type="button" 
+                  class="mt-6 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition disabled:opacity-50"
+                  id="date-continue-btn" disabled>
+            CONTINUE<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+
+        <!-- Step 3: Time Slots -->
+        <div id="step-time" class="hidden">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="font-black text-2xl tracking-tight">Choose a Time</h3>
+            <button type="button" id="back-to-calendar" class="text-sm text-white/60 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7 7-7" /></svg>Back</button>
+          </div>
+
+          <div class="bg-black rounded-3xl p-6 border border-white/10">
+            <div class="text-sm text-white/60 mb-4">Available slots for <span id="selected-date" class="font-bold text-white"></span></div>
+            <div id="time-slots" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
+          </div>
+
+          <input type="hidden" name="time" id="hidden-time">
+          <button type="button" 
+                  class="mt-6 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition disabled:opacity-50"
+                  id="time-continue-btn" disabled>
+            CONTINUE<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+
+        <!-- Step 4: Details + Submit -->
+        <div id="step-details" class="hidden">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="font-black text-2xl tracking-tight">Your Details</h3>
+            <button type="button" id="back-to-time" class="text-sm text-white/60 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7 7-7" /></svg>Back</button>
+          </div>
+
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">FIRST NAME *</label>
+                <input type="text" name="first_name" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="Ahmed">
+              </div>
+              <div>
+                <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">LAST NAME *</label>
+                <input type="text" name="last_name" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="Khan">
+              </div>
+            </div>
+            <div>
+              <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">EMAIL *</label>
+              <input type="email" name="email" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="you@example.com">
+            </div>
+            <div>
+              <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">WHATSAPP NUMBER *</label>
+              <input type="tel" name="phone" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="+92 300 1234567">
+            </div>
+          </div>
+
+          <input type="hidden" name="service" id="hidden-service">
+          <input type="hidden" name="employee" id="hidden-employee">
+
+          <button type="submit" 
+                  class="mt-8 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition">
+            SEND BOOKING REQUEST<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
+          </button>
+          <p class="text-center text-xs text-white/50 mt-3">We'll email you within a few hours to confirm</p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-black text-white py-16 px-5 border-t-8 border-[#FFDD00]">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="section-label tracking-[3px] text-[#FFDD00] mb-3">DON'T MISS THE NEXT EPISODE</div>
+      
+      <h2 class="text-5xl sm:text-6xl font-black tracking-[-2px] leading-none mb-10">
+        Ready for more<br>unfiltered student life?
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <a href="https://www.youtube.com/@saadanddanial9?sub_confirmation=1" target="_blank"
+           class="cta-button group flex flex-col items-center justify-center gap-3 bg-zinc-950 hover:bg-zinc-900 border border-white/20 hover:border-[#FFDD00] p-8 rounded-3xl transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[#FFDD00]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l6.425 4-6.425 4z"/></svg>
+          <div class="font-black text-5xl tracking-tighter mt-2">YOUTUBE</div>
+          <div class="text-lg font-bold text-white/70">25.3K subscribers</div>
+          <div class="mt-3 px-6 py-2.5 bg-white/5 group-hover:bg-[#FFDD00] group-hover:text-black rounded-2xl text-xs font-black tracking-widest transition-colors">SUBSCRIBE NOW</div>
+        </a>
+
+        <a href="https://instagram.com/saadanddanial9" target="_blank"
+           class="cta-button group flex flex-col items-center justify-center gap-3 bg-zinc-950 hover:bg-zinc-900 border border-white/20 hover:border-[#FFDD00] p-8 rounded-3xl transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[#FFDD00]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.667.072 4.947.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.76 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <div class="font-black text-5xl tracking-tighter mt-2">INSTAGRAM</div>
+          <div class="text-lg font-bold text-white/70">@saadanddanial9</div>
+          <div class="mt-3 px-6 py-2.5 bg-white/5 group-hover:bg-[#FFDD00] group-hover:text-black rounded-2xl text-xs font-black tracking-widest transition-colors">FOLLOW THE CHAOS</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-white/60 text-center py-8 text-sm tracking-widest font-medium border-t-4 border-[#FFDD00]">
+    MADE WITH CHAOS BY SAAD &amp; DANIAL • PAKISTAN TO GERMANY
+  </footer>
+
+  <script>
+    function goToStep(step) {
+      document.querySelectorAll('[id^="step-"]').forEach(el => el.style.display = "none");
+      document.getElementById("step-" + step).style.display = "block";
+
+      if (step === "calendar") generateCalendar();
+      if (step === "time") generateTimeSlots();
+    }
+
+    function generateCalendar() {
+      const grid = document.getElementById("calendar-grid");
+      grid.innerHTML = "";
+
+      const availableDays = [2,3,4,5,6,9,10,11,12,13,16,17,18,19,20,23,24,25,26,27,30];
+
+      availableDays.forEach(day => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = day;
+        btn.className = `py-2 rounded-xl text-sm transition hover:bg-white/10`;
+
+        btn.onclick = () => {
+          grid.querySelectorAll("button").forEach(b => b.classList.remove("bg-[#FFDD00]", "text-black", "font-bold"));
+          btn.classList.add("bg-[#FFDD00]", "text-black", "font-bold");
+
+          const selectedDate = `June ${day}, 2026`;
+          document.getElementById("hidden-date").value = selectedDate;
+          document.getElementById("selected-date").textContent = selectedDate;
+          document.getElementById("date-continue-btn").disabled = false;
+        };
+        grid.appendChild(btn);
+      });
+    }
+
+    function generateTimeSlots() {
+      const container = document.getElementById("time-slots");
+      container.innerHTML = "";
+
+      const slots = ["1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM"];
+
+      slots.forEach(time => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = time;
+        btn.className = `py-3 px-4 border border-white/20 rounded-2xl text-sm hover:bg-[#FFDD00] hover:text-black transition`;
+
+        btn.onclick = () => {
+          container.querySelectorAll("button").forEach(b => b.classList.remove("bg-[#FFDD00]", "text-black", "border-[#FFDD00]"));
+          btn.classList.add("bg-[#FFDD00]", "text-black", "border-[#FFDD00]");
+
+          document.getElementById("hidden-time").value = time;
+          document.getElementById("time-continue-btn").disabled = false;
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function initBookingFlow() {
+      const serviceContinue = document.getElementById("service-continue-btn");
+      if (serviceContinue) serviceContinue.onclick = () => goToStep("calendar");
+
+      const backToService = document.getElementById("back-to-service");
+      if (backToService) backToService.onclick = () => goToStep("service");
+
+      const backToCalendar = document.getElementById("back-to-calendar");
+      if (backToCalendar) backToCalendar.onclick = () => goToStep("calendar");
+
+      const backToTime = document.getElementById("back-to-time");
+      if (backToTime) backToTime.onclick = () => goToStep("time");
+
+      const dateContinue = document.getElementById("date-continue-btn");
+      if (dateContinue) dateContinue.onclick = () => goToStep("time");
+
+      const timeContinue = document.getElementById("time-continue-btn");
+      if (timeContinue) timeContinue.onclick = () => goToStep("details");
+
+      document.getElementById("booking-form").addEventListener("submit", function() {
+        document.getElementById("hidden-service").value = document.getElementById("service").value;
+        const emp = document.querySelector('input[name="employee"]:checked');
+        if (emp) document.getElementById("hidden-employee").value = emp.value;
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", initBookingFlow);
+  </script>
+</Layout>
