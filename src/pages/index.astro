@@ -71,11 +71,23 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-[-3px] text-black">Saad &amp; Danial</h2>
       </div>
 
-      <div class="photo-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3">
-        <img src="/images/saad-danial-1.jpg" alt="Saad & Danial at the Berlin Wall" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
-        <img src="/images/saad-danial-2.jpg" alt="Saad & Danial at a mountain viewpoint in Austria" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
-        <img src="/images/saad-danial-3.jpg" alt="Saad & Danial reviewing footage" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
-        <img src="/images/saad-danial-4.jpg" alt="Saad & Danial on a European street" class="w-full aspect-[4/4.7] object-cover rounded-3xl">
+      <div class="photo-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="0">
+          <img src="/images/saad-danial-1.jpg" alt="Saad & Danial at the Berlin Wall" 
+               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
+        </div>
+        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="120">
+          <img src="/images/saad-danial-2.jpg" alt="Saad & Danial at a mountain viewpoint in Austria" 
+               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
+        </div>
+        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="240">
+          <img src="/images/saad-danial-3.jpg" alt="Saad & Danial reviewing footage" 
+               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
+        </div>
+        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="360">
+          <img src="/images/saad-danial-4.jpg" alt="Saad & Danial on a European street" 
+               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
+        </div>
       </div>
     </div>
   </section>
@@ -88,9 +100,9 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <a href="https://www.youtube.com/watch?v=GdBubpZBQpY" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden">
-        <div class="aspect-video bg-zinc-900 relative">
-          <img src="https://img.youtube.com/vi/GdBubpZBQpY/maxresdefault.jpg" class="w-full h-full object-cover" alt="A Real Day in the Life of a Broke Student in Germany">
+      <a href="https://www.youtube.com/watch?v=GdBubpZBQpY" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div class="aspect-video bg-zinc-900 relative overflow-hidden">
+          <img src="https://img.youtube.com/vi/GdBubpZBQpY/maxresdefault.jpg" class="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.08]" alt="A Real Day in the Life of a Broke Student in Germany">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
               <span class="text-white text-3xl ml-1">▶</span>
@@ -103,9 +115,9 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </a>
 
-      <a href="https://www.youtube.com/watch?v=auYySwMaaXU" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden">
-        <div class="aspect-video bg-zinc-900 relative">
-          <img src="https://img.youtube.com/vi/auYySwMaaXU/maxresdefault.jpg" class="w-full h-full object-cover" alt="How We Came To Germany From Pakistan">
+      <a href="https://www.youtube.com/watch?v=auYySwMaaXU" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div class="aspect-video bg-zinc-900 relative overflow-hidden">
+          <img src="https://img.youtube.com/vi/auYySwMaaXU/maxresdefault.jpg" class="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.08]" alt="How We Came To Germany From Pakistan">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
               <span class="text-white text-3xl ml-1">▶</span>
@@ -118,9 +130,9 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </a>
 
-      <a href="https://www.youtube.com/watch?v=kRHX6n4fTF4" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden">
-        <div class="aspect-video bg-zinc-900 relative">
-          <img src="https://img.youtube.com/vi/kRHX6n4fTF4/maxresdefault.jpg" class="w-full h-full object-cover" alt="Stopped at German Immigration">
+      <a href="https://www.youtube.com/watch?v=kRHX6n4fTF4" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div class="aspect-video bg-zinc-900 relative overflow-hidden">
+          <img src="https://img.youtube.com/vi/kRHX6n4fTF4/maxresdefault.jpg" class="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.08]" alt="Stopped at German Immigration">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
               <span class="text-white text-3xl ml-1">▶</span>
@@ -399,3 +411,99 @@ import Layout from '../layouts/Layout.astro';
     document.addEventListener("DOMContentLoaded", initBookingFlow);
   </script>
 </Layout>
+  <script>
+    // Tasteful scroll reveal animations (Awwwards style)
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.section-animate').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Premium button micro-interactions
+    function initButtonEffects() {
+      document.querySelectorAll('.cta-button').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          btn.style.setProperty('--mouse-x', `${x}%`);
+          btn.style.setProperty('--mouse-y', `${y}%`);
+        });
+      });
+    }
+
+
+    // Cinematic staggered photo grid reveal
+    function initCinematicGrid() {
+      const frames = document.querySelectorAll('.cinematic-frame');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = parseInt(entry.target.dataset.delay) || 0;
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      frames.forEach(frame => {
+        frame.style.opacity = '0';
+        frame.style.transform = 'translateY(60px)';
+        frame.style.transition = 'all 900ms cubic-bezier(0.23, 1, 0.32, 1)';
+        observer.observe(frame);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollAnimations();
+      initButtonEffects();
+      initCinematicGrid();
+    });
+  </script>
+
+  <style>
+    .section-animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .section-animate.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-button {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: var(--mouse-y, 50%);
+      left: var(--mouse-x, 50%);
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease;
+      pointer-events: none;
+      border-radius: 9999px;
+    }
+    .cta-button:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
