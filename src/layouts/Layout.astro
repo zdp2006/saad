@@ -6,13 +6,69 @@ import '../styles/global.css';
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{Astro.props.title || "Saad & Danial | Pakistani Students in Germany"}</title>
-    <meta name="description" content="Two chaotic Pakistani students vlogging real life in Germany. Daily chaos, immigration stories, broke student life & unfiltered vlogs." />
+    
+    <title>{Astro.props.title || "Saad & Danial | Study in Germany — Pakistani Students"}</title>
+    <meta name="description" content="Trusted guidance for Pakistani students wanting to study in Germany. Real advice on visas, universities, Ausbildung & student life from two students who made the journey. Book a free consultation." />
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Saad & Danial | Your Guides to Studying in Germany" />
+    <meta property="og:description" content="From Karachi to Germany. 25K+ students follow our real journey. Free resources, 1:1 guidance, and proven paths for Pakistani students." />
+    <meta property="og:image" content="https://saadanddanial.com/images/saad-danial-1.jpg" />
+    <meta property="og:url" content="https://saadanddanial.com" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Saad & Danial — Study in Germany from Pakistan" />
+    <meta name="twitter:description" content="Real talk. Real results. Guidance on Master's, Bachelor's, Ausbildung & visas for Pakistani students." />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="preconnect" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    
+    <!-- GSAP for premium interactions (Awwwards-inspired) -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   </head>
-  <body class="font-sans antialiased bg-white text-black">
+  <body class="font-sans antialiased bg-white text-[#0F172A] selection:bg-[#FFDD00] selection:text-[#0A1F44]">
+    <!-- Subtle scroll progress -->
+    <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+    
     <slot />
+    
+    <script is:inline>
+      // Lightweight progress bar (Awwwards polish)
+      function initProgressBar() {
+        const bar = document.getElementById('progress-bar');
+        if (!bar) return;
+        
+        function updateProgress() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+          bar.style.width = progress + '%';
+        }
+        
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+      }
+      
+      // Register GSAP plugins if available
+      function registerGSAP() {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+          gsap.registerPlugin(ScrollTrigger);
+          window.gsap = gsap;
+          window.ScrollTrigger = ScrollTrigger;
+        }
+      }
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        initProgressBar();
+        registerGSAP();
+      });
+    </script>
   </body>
 </html>

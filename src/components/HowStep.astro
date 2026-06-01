@@ -1,0 +1,25 @@
+---
+// Step in the "How We Help" journey - clean numbered process
+interface Props {
+  number: number;
+  title: string;
+  desc: string;
+  time?: string;
+}
+
+const { number, title, desc, time } = Astro.props;
+---
+
+<div class="step group flex gap-4 sm:gap-5">
+  <div class="flex flex-col items-center">
+    <div class="step-number text-base">{number}</div>
+    {number < 5 && <div class="step-connector hidden md:block"></div>}
+  </div>
+  <div class="pb-8 sm:pb-6 flex-1">
+    <div class="flex items-baseline gap-2 mb-1">
+      <h4 class="font-bold text-lg tracking-tight text-[#0A1F44]">{title}</h4>
+      {time && <span class="text-xs font-bold px-2 py-px rounded bg-[#F1F5F9] text-[#0D5C63]">{time}</span>}
+    </div>
+    <p class="text-sm leading-relaxed text-[#475569]">{desc}</p>
+  </div>
+</div>

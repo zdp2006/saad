@@ -1,0 +1,119 @@
+---
+// Premium sticky navbar - Awwwards inspired clean navigation with strong conversion CTA
+---
+
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-[#E2E8F0]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div>
+          <div class="font-black text-2xl tracking-[-2.5px] text-[#0A1F44] group-hover:text-[#0D5C63] transition-colors">SAAD &amp; DANIAL</div>
+          <div class="text-[9px] text-[#0D5C63] font-bold tracking-[2.5px] -mt-1">PAKISTAN → GERMANY</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-9 text-sm font-semibold">
+        <a href="#why" class="text-[#475569] hover:text-[#0A1F44] transition-colors">Why Germany</a>
+        <a href="#programs" class="text-[#475569] hover:text-[#0A1F44] transition-colors">Programs</a>
+        <a href="#stories" class="text-[#475569] hover:text-[#0A1F44] transition-colors">Success Stories</a>
+        <a href="#how" class="text-[#475569] hover:text-[#0A1F44] transition-colors">How We Help</a>
+        <a href="#youtube" class="text-[#475569] hover:text-[#0A1F44] transition-colors">YouTube</a>
+      </div>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.youtube.com/@saadanddanial9" target="_blank" 
+           class="btn btn-ghost text-sm font-bold flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l6.425 4-6.425 4z"/></svg>
+          <span>WATCH</span>
+        </a>
+        
+        <button 
+          onclick="window.openBookingModal && window.openBookingModal()"
+          class="btn btn-gold text-sm px-6 py-2.5 shadow-sm">
+          BOOK FREE CALL
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn"
+        class="md:hidden w-11 h-11 flex items-center justify-center text-[#0A1F44] hover:bg-[#F1F5F9] rounded-2xl transition"
+        aria-label="Open menu"
+        aria-expanded="false">
+        <svg id="menu-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-nav md:hidden fixed inset-y-0 right-0 w-4/5 max-w-[280px] bg-white border-l border-[#E2E8F0] shadow-2xl z-[60] pt-20 px-6">
+    <div class="flex flex-col gap-2 text-[15px] font-semibold">
+      <a href="#why" class="mobile-link py-3 px-4 rounded-2xl hover:bg-[#F1F5F9]">Why Germany</a>
+      <a href="#programs" class="mobile-link py-3 px-4 rounded-2xl hover:bg-[#F1F5F9]">Programs</a>
+      <a href="#stories" class="mobile-link py-3 px-4 rounded-2xl hover:bg-[#F1F5F9]">Success Stories</a>
+      <a href="#how" class="mobile-link py-3 px-4 rounded-2xl hover:bg-[#F1F5F9]">How We Help</a>
+      <a href="#youtube" class="mobile-link py-3 px-4 rounded-2xl hover:bg-[#F1F5F9]">YouTube</a>
+      
+      <div class="h-px bg-[#E2E8F0] my-3"></div>
+      
+      <a href="https://www.youtube.com/@saadanddanial9" target="_blank" 
+         class="mobile-link flex items-center gap-2 py-3 px-4 rounded-2xl hover:bg-[#F1F5F9]">
+        <span>Watch on YouTube</span>
+      </a>
+      
+      <button 
+        onclick="document.getElementById('mobile-menu').classList.remove('open'); window.openBookingModal && window.openBookingModal()"
+        class="mt-2 btn btn-gold w-full justify-center py-3 text-base">
+        Book Free Strategy Call
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  function initMobileNav() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    
+    if (!btn || !menu) return;
+
+    let open = false;
+
+    const toggle = () => {
+      open = !open;
+      menu.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      
+      if (open) {
+        icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />`;
+        document.body.style.overflow = 'hidden';
+      } else {
+        icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M4 6h16M4 12h16M4 18h16" />`;
+        document.body.style.overflow = '';
+      }
+    };
+
+    btn.addEventListener('click', toggle);
+
+    // Close on link click
+    menu.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (open) toggle();
+      });
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && open) toggle();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initMobileNav);
+</script>

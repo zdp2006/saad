@@ -1,0 +1,21 @@
+---
+// Consistent premium section header used across the site
+interface Props {
+  label: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+}
+
+const { label, title, description, align = 'left' } = Astro.props;
+---
+
+<div class={align === 'center' ? 'text-center max-w-2xl mx-auto' : ''}>
+  <div class="section-label mb-3">{label}</div>
+  <h2 class="heading-lg text-[#0A1F44] mb-4 tracking-[-1.5px]">{title}</h2>
+  {description && (
+    <p class="text-[#475569] text-[15px] leading-relaxed max-w-[46ch] mx-auto">
+      {description}
+    </p>
+  )}
+</div>

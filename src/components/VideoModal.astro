@@ -1,0 +1,93 @@
+---
+// Beautiful YouTube video modal - click-to-load for performance
+---
+
+<div id="video-modal" class="modal video-modal" aria-hidden="true" role="dialog" aria-label="Video player">
+  <div class="modal-backdrop" onclick="window.closeVideoModal && window.closeVideoModal()"></div>
+  
+  <div class="modal-content w-full mx-4">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[#0A1F44]">
+      <div id="video-modal-title" class="text-white font-semibold text-lg pr-8"></div>
+      <button 
+        onclick="window.closeVideoModal && window.closeVideoModal()"
+        class="text-white/70 hover:text-white p-2 -mr-2 transition"
+        aria-label="Close video">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="video-container">
+      <div id="video-player-container" class="absolute inset-0 flex items-center justify-center bg-black">
+        <!-- iframe injected via JS for performance -->
+      </div>
+    </div>
+
+    <div class="px-5 py-3.5 bg-[#0A1F44] flex items-center justify-between text-xs text-white/50">
+      <div>Watch full video on YouTube for better experience</div>
+      <a id="video-yt-link" href="#" target="_blank" class="flex items-center gap-1 hover:text-[#FFDD00] transition font-medium">
+        OPEN ON YOUTUBE <span class="text-base leading-none">↗</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentIframe = null;
+
+  window.openVideoModal = function(videoId, title, ytUrl) {
+    const modal = document.getElementById('video-modal');
+    const container = document.getElementById('video-player-container');
+    const titleEl = document.getElementById('video-modal-title');
+    const link = document.getElementById('video-yt-link');
+
+    if (!modal || !container) return;
+
+    // Clean previous
+    if (currentIframe) currentIframe.remove();
+    container.innerHTML = '';
+
+    // Create iframe (loads only when opened)
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.className = 'w-full h-full';
+    container.appendChild(iframe);
+    currentIframe = iframe;
+
+    titleEl.textContent = title;
+    link.href = ytUrl || `https://www.youtube.com/watch?v=${videoId}`;
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeVideoModal = function() {
+    const modal = document.getElementById('video-modal');
+    const container = document.getElementById('video-player-container');
+
+    if (!modal) return;
+
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    // Destroy iframe to stop video + save bandwidth
+    setTimeout(() => {
+      if (container) container.innerHTML = '';
+      if (currentIframe) currentIframe = null;
+    }, 280);
+  };
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('video-modal');
+    if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+      window.closeVideoModal();
+    }
+  });
+</script>

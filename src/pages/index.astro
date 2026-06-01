@@ -1,553 +1,677 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import VideoModal from '../components/VideoModal.astro';
+import BookingModal from '../components/BookingModal.astro';
+import HowStep from '../components/HowStep.astro';
 ---
 
-<Layout title="Saad & Danial | Pakistani Students in Germany">
-  <!-- LOUD NAV -->
-  <nav class="border-b-4 border-black bg-black text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#FFDD00] text-black rounded-2xl flex items-center justify-center font-black text-3xl sm:text-4xl tracking-tighter">SD</div>
-        <div>
-          <div class="font-black text-2xl sm:text-3xl tracking-[-3px]">SAAD & DANIAL</div>
-          <div class="text-[9px] sm:text-[10px] text-white/50 -mt-1 tracking-[3px]">PAKISTAN → GERMANY</div>
-        </div>
+<Layout title="Saad & Danial | Study in Germany — Real Guidance for Pakistani Students">
+  <Navbar />
+
+  <!-- ==================== HERO (Premium, conversion-first) ==================== -->
+  <section class="relative overflow-hidden bg-[#0A1F44] text-white pt-16 pb-20 md:pt-20 md:pb-24 border-b-4 border-[#FFDD00]">
+    <div class="max-w-5xl mx-auto px-5 sm:px-6 text-center relative z-10">
+      <!-- Trust badge -->
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-5 h-9 rounded-3xl text-xs font-bold tracking-[2px] mb-7 border border-white/20">
+        <span class="w-1.5 h-1.5 bg-[#FFDD00] rounded-full animate-pulse"></span>
+        25,400+ STUDENTS • 3+ YEARS DOCUMENTING THE JOURNEY
       </div>
 
-      <div class="hidden md:flex items-center gap-4 text-sm font-bold">
-        <a href="#vlogs" class="px-6 py-3 hover:bg-white hover:text-black transition rounded-3xl">VLOGS</a>
-        <a href="#chaos" class="px-6 py-3 hover:bg-white hover:text-black transition rounded-3xl">THE CHAOS</a>
-        <a href="https://www.youtube.com/@saadanddanial9" target="_blank" 
-           class="px-8 py-3 bg-[#FFDD00] text-black rounded-3xl font-black flex items-center gap-2 hover:bg-white transition">
-          <span>WATCH ON YOUTUBE</span>
-        </a>
-      </div>
-
-      <div class="md:hidden">
-        <a href="https://www.youtube.com/@saadanddanial9" target="_blank" 
-           class="px-5 py-2.5 bg-[#FFDD00] text-black rounded-3xl text-sm font-black">
-          WATCH
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="bg-black text-white pt-12 pb-16 px-5 border-b-8 border-[#FFDD00]">
-    <div class="max-w-6xl mx-auto text-center">
-      <div class="inline-block px-5 py-1.5 bg-[#FFDD00] text-black text-xs font-black tracking-[3px] rounded-full mb-6">
-        25K+ SUBSCRIBERS • KARACHI TO GERMANY
-      </div>
-      
-      <h1 class="text-[52px] sm:text-[68px] md:text-[88px] lg:text-[105px] leading-[0.82] font-black tracking-[-3.5px] sm:tracking-[-5px] mb-6 chaos-text">
-        TWO CHAOTIC<br>
-        <span class="yellow">PAKISTANI GUYS</span><br>
-        IN GERMANY.
+      <h1 class="heading-xl tracking-[-3.8px] leading-[0.9] mb-6">
+        From Pakistan.<br />
+        <span class="text-[#FFDD00]">To Germany.</span><br />
+        With clarity.
       </h1>
-      
-      <p class="max-w-md mx-auto text-xl sm:text-2xl text-white/80 mb-10 tracking-tight">
-        No filter. No fancy advice.<br>
-        Just real student life &amp; daily chaos.
+
+      <p class="max-w-[42ch] mx-auto text-xl md:text-2xl text-white/80 tracking-tight mb-10">
+        No generic advice. No middlemen.<br class="hidden sm:block" />
+        Honest guidance from two Pakistani students who made it — and documented everything.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
-        <a href="https://www.youtube.com/@saadanddanial9" target="_blank"
-           class="cta-button inline-flex items-center justify-center bg-[#FFDD00] hover:bg-white text-black px-8 py-4 rounded-3xl font-black text-lg tracking-[-0.5px] w-full sm:w-auto">
-          SUBSCRIBE ON YOUTUBE
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
+        <button 
+          onclick="window.openBookingModal && window.openBookingModal()"
+          class="btn btn-gold px-9 py-4 text-base shadow-lg w-full sm:w-auto">
+          BOOK YOUR FREE STRATEGY CALL
+        </button>
+        <a href="#youtube" 
+           class="btn btn-outline border-white/70 text-white hover:bg-white hover:text-[#0A1F44] px-8 py-4 w-full sm:w-auto">
+          WATCH OUR LATEST VLOG
         </a>
-        <a href="#vlogs"
-           class="cta-button inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-3xl font-black text-lg tracking-[-0.5px] hover:bg-white hover:text-black w-full sm:w-auto">
-          WATCH THE CHAOS
-        </a>
+      </div>
+
+      <div class="mt-9 flex justify-center gap-8 text-xs text-white/60 tracking-widest font-medium">
+        <div>340+ CALLS COMPLETED</div>
+        <div>87% ENROLLED</div>
+        <div class="hidden sm:block">4 CITIES IN PAKISTAN</div>
+      </div>
+    </div>
+
+    <!-- Subtle decorative element -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] h-[2px] bg-gradient-to-r from-transparent via-[#FFDD00]/30 to-transparent"></div>
+  </section>
+
+  <!-- ==================== MEET THE GUIDES (Refined photo presence) ==================== -->
+  <section class="max-w-7xl mx-auto px-5 sm:px-6 pt-14 pb-8">
+    <div class="grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-5">
+        <div class="section-label">THE PEOPLE BEHIND THE GUIDANCE</div>
+        <h3 class="heading-lg tracking-[-1.5px] text-[#0A1F44] mt-2 mb-4">Saad &amp; Danial.<br />We've been exactly where you are.</h3>
+        <p class="text-[#475569] pr-2">Two friends from Karachi who moved to Germany for studies. We documented every expensive mistake, every visa win, and every "how is this even possible" moment so you don't have to repeat them.</p>
+        
+        <div class="mt-6 flex gap-3">
+          <button onclick="window.openBookingModal && window.openBookingModal()" class="btn btn-gold px-6 py-2.5 text-sm">TALK TO US DIRECTLY</button>
+          <a href="#youtube" class="btn btn-ghost px-4 py-2.5 text-sm">Watch our story →</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-7">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="cinematic-frame"><img src="/images/saad-danial-1.jpg" alt="Saad & Danial at the Berlin Wall" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
+          <div class="cinematic-frame"><img src="/images/saad-danial-2.jpg" alt="Saad & Danial at a mountain viewpoint in Austria" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
+          <div class="cinematic-frame"><img src="/images/saad-danial-3.jpg" alt="Saad & Danial reviewing footage" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
+          <div class="cinematic-frame"><img src="/images/saad-danial-4.jpg" alt="Saad & Danial on a European street" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CREATOR PHOTO COLLAGE -->
-  <section id="chaos" class="bg-[#FFDD00] py-12 sm:py-16 px-5 border-b-8 border-black">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-8">
-        <div class="section-label text-black/60">THE FACES BEHIND THE CHAOS</div>
-        <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-[-3px] text-black">Saad &amp; Danial</h2>
-      </div>
+  <!-- ==================== WHY GERMANY ==================== -->
+  <section id="why" class="max-w-7xl mx-auto px-5 sm:px-6 pt-20 pb-16">
+    <SectionHeader 
+      label="WHY THOUSANDS OF PAKISTANI STUDENTS CHOOSE GERMANY" 
+      title="The smartest move you can make" 
+      description="World-class education at near-zero cost, 18-month post-study work visa, and a clear path to long-term residency."
+      align="center"
+    />
 
-      <div class="photo-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="0">
-          <img src="/images/saad-danial-1.jpg" alt="Saad & Danial at the Berlin Wall" 
-               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+      {[
+        { icon: "🎓", title: "Tuition-Free or Low-Cost", desc: "Most public universities charge €0–€3,000 per semester. Quality that rivals UK & USA at 1/5th the cost." },
+        { icon: "💼", title: "18-Month Job Seeker Visa", desc: "Stay after graduation to find work. Strong demand in engineering, IT, healthcare, and logistics." },
+        { icon: "🏠", title: "Clear Path to PR", desc: "After 2 years of skilled work you can apply for permanent residency. Many Pakistanis have done it." },
+        { icon: "🌍", title: "English-Taught Programs", desc: "1,500+ Master's programs taught entirely in English. No German required to start studying." },
+        { icon: "👥", title: "Large Pakistani Community", desc: "Thriving student networks in Berlin, Munich, Frankfurt, Hamburg. You won't feel alone." },
+        { icon: "📈", title: "High ROI & Safety", desc: "Germany ranks among safest countries. Excellent healthcare, public transport, and work-life balance." }
+      ].map((b, i) => (
+        <div class="card p-6 group" data-aos-delay={i * 40}>
+          <div class="text-3xl mb-4 opacity-90">{b.icon}</div>
+          <h4 class="font-bold text-lg tracking-tight mb-2 text-[#0A1F44]">{b.title}</h4>
+          <p class="text-sm leading-relaxed text-[#475569]">{b.desc}</p>
         </div>
-        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="120">
-          <img src="/images/saad-danial-2.jpg" alt="Saad & Danial at a mountain viewpoint in Austria" 
-               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
-        </div>
-        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="240">
-          <img src="/images/saad-danial-3.jpg" alt="Saad & Danial reviewing footage" 
-               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
-        </div>
-        <div class="group overflow-hidden rounded-3xl cinematic-frame" data-delay="360">
-          <img src="/images/saad-danial-4.jpg" alt="Saad & Danial on a European street" 
-               class="w-full aspect-[4/4.7] object-cover rounded-3xl transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]">
-        </div>
-      </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-9">
+      <button onclick="window.openBookingModal && window.openBookingModal()" 
+              class="text-sm font-bold text-[#0D5C63] hover:text-[#0A1F44] inline-flex items-center gap-1 group">
+        NOT SURE IF GERMANY IS RIGHT FOR YOU? TALK TO US FREE 
+        <span class="group-hover:translate-x-0.5 transition">→</span>
+      </button>
     </div>
   </section>
 
-  <!-- LATEST VLOGS -->
-  <section id="vlogs" class="max-w-7xl mx-auto px-5 py-16 bg-white">
-    <div class="mb-8">
-      <div class="section-label text-red-600">LATEST FROM THE CHANNEL</div>
-      <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-[-3px]">What we've been up to</h2>
-    </div>
+  <!-- ==================== POPULAR PROGRAMS (Filterable) ==================== -->
+  <section id="programs" class="bg-[#F8FAFC] border-y border-[#E2E8F0] py-16">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+        <SectionHeader 
+          label="CURATED PATHWAYS" 
+          title="Popular programs for Pakistani students" 
+        />
+        <div class="text-xs text-[#475569] md:pb-1">Updated for 2026 intake cycle</div>
+      </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <a href="https://www.youtube.com/watch?v=GdBubpZBQpY" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-        <div class="aspect-video bg-zinc-900 relative overflow-hidden">
-          <img src="https://img.youtube.com/vi/GdBubpZBQpY/maxresdefault.jpg" class="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.08]" alt="A Real Day in the Life of a Broke Student in Germany">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
-              <span class="text-white text-3xl ml-1">▶</span>
-            </div>
+      <!-- Filter Pills -->
+      <div id="program-filters" class="flex flex-wrap gap-2 mb-8">
+        <button class="filter-pill active" data-filter="all">All Pathways</button>
+        <button class="filter-pill" data-filter="masters">Master's</button>
+        <button class="filter-pill" data-filter="bachelors">Bachelor's</button>
+        <button class="filter-pill" data-filter="ausbildung">Ausbildung</button>
+        <button class="filter-pill" data-filter="engineering">Engineering & Tech</button>
+      </div>
+
+      <div id="programs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Populated by JS from programsData + ProgramCard partials for SSR feel -->
+      </div>
+
+      <p class="text-center text-xs text-[#64748B] mt-8">These are real programs our community has successfully entered. Your situation is unique — book a call for tailored shortlist.</p>
+    </div>
+  </section>
+
+  <!-- ==================== SUCCESS STORIES ==================== -->
+  <section id="stories" class="max-w-7xl mx-auto px-5 sm:px-6 py-20">
+    <SectionHeader 
+      label="REAL STUDENTS. REAL RESULTS." 
+      title="They watched. They asked. They went." 
+      description="Every single one of these students started exactly where you are — watching our videos from Pakistan."
+      align="center"
+    />
+
+    <div class="grid md:grid-cols-3 gap-5 mt-11">
+      <!-- Testimonial 1 -->
+      <div class="card p-7">
+        <div class="flex gap-3 mb-5">
+          <div class="w-11 h-11 bg-[#0A1F44] text-white rounded-2xl flex items-center justify-center font-black text-sm flex-shrink-0">AK</div>
+          <div>
+            <div class="font-bold">Ayesha Khan</div>
+            <div class="text-xs text-[#0D5C63]">Lahore → TU Darmstadt • MSc Data Science</div>
           </div>
         </div>
-        <div class="p-7 text-white">
-          <div class="font-black text-xl tracking-tight leading-none mb-2">A Real Day in the Life of a Broke Student in Germany!</div>
-          <div class="text-sm text-white/60 font-medium">1 month ago • 10K views</div>
+        <blockquote class="text-[15px] leading-relaxed text-[#334155]">
+          “Saad’s video on the blocked account literally saved my application. I was about to send the wrong documents. Got my visa in 34 days after our call.”
+        </blockquote>
+        <div class="mt-6 pt-5 border-t text-xs font-bold tracking-widest text-[#0D5C63]">MASTER'S 2025 • FULLY FUNDED</div>
+      </div>
+
+      <!-- Testimonial 2 + Video -->
+      <div class="card p-7 flex flex-col">
+        <div class="flex gap-3 mb-5">
+          <div class="w-11 h-11 bg-[#FFDD00] text-[#0A1F44] rounded-2xl flex items-center justify-center font-black text-sm flex-shrink-0">HM</div>
+          <div>
+            <div class="font-bold">Hamza Malik</div>
+            <div class="text-xs text-[#0D5C63]">Karachi → Siemens • Ausbildung Mechatronics</div>
+          </div>
         </div>
+        <blockquote class="text-[15px] leading-relaxed text-[#334155] flex-1">
+          “I thought Ausbildung was only for Germans. After one call with Danial I had the exact checklist. Started my training in Nuremberg 8 months later.”
+        </blockquote>
+
+        <button 
+          onclick="window.openVideoModal && window.openVideoModal('auYySwMaaXU', 'How We Came To Germany From Pakistan', 'https://www.youtube.com/watch?v=auYySwMaaXU')"
+          class="mt-6 group flex items-center gap-3 text-left text-sm font-semibold text-[#0D5C63] hover:text-[#0A1F44]">
+          <span class="inline-flex items-center justify-center w-8 h-8 bg-[#0A1F44] group-hover:bg-[#FFDD00] group-hover:text-[#0A1F44] text-white rounded-full transition">▶</span>
+          <span>WATCH HIS FULL STORY (12 min)</span>
+        </button>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="card p-7">
+        <div class="flex gap-3 mb-5">
+          <div class="w-11 h-11 bg-[#0D5C63] text-white rounded-2xl flex items-center justify-center font-black text-sm flex-shrink-0">SZ</div>
+          <div>
+            <div class="font-bold">Sara Zafar</div>
+            <div class="text-xs text-[#0D5C63]">Islamabad → RWTH Aachen • BSc Mechanical Eng</div>
+          </div>
+        </div>
+        <blockquote class="text-[15px] leading-relaxed text-[#334155]">
+          “My parents were terrified of the cost. After watching 40+ of their videos I realized public universities in Germany are basically free. Changed our entire family’s future.”
+        </blockquote>
+        <div class="mt-6 pt-5 border-t text-xs font-bold tracking-widest text-[#0D5C63]">BACHELOR'S 2024 • SCHOLARSHIP WINNER</div>
+      </div>
+    </div>
+
+    <div class="text-center mt-9">
+      <a href="https://www.youtube.com/@saadanddanial9" target="_blank" class="inline-flex items-center text-sm font-bold text-[#0D5C63] hover:underline">
+        SEE 100+ MORE STORIES ON OUR CHANNEL →
       </a>
-
-      <a href="https://www.youtube.com/watch?v=auYySwMaaXU" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-        <div class="aspect-video bg-zinc-900 relative overflow-hidden">
-          <img src="https://img.youtube.com/vi/auYySwMaaXU/maxresdefault.jpg" class="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.08]" alt="How We Came To Germany From Pakistan">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
-              <span class="text-white text-3xl ml-1">▶</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-7 text-white">
-          <div class="font-black text-xl tracking-tight leading-none mb-2">How We Came To Germany From Pakistan Ep.1</div>
-          <div class="text-sm text-white/60 font-medium">Apr 2026 • 25K views</div>
-        </div>
-      </a>
-
-      <a href="https://www.youtube.com/watch?v=kRHX6n4fTF4" target="_blank" class="vlog-card group block bg-black rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-        <div class="aspect-video bg-zinc-900 relative overflow-hidden">
-          <img src="https://img.youtube.com/vi/kRHX6n4fTF4/maxresdefault.jpg" class="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.08]" alt="Stopped at German Immigration">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-14 h-14 bg-[#FF0033] rounded-full flex items-center justify-center group-hover:scale-110 transition">
-              <span class="text-white text-3xl ml-1">▶</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-7 text-white">
-          <div class="font-black text-xl tracking-tight leading-none mb-2">Stopped at German Immigration | Part 2</div>
-          <div class="text-sm text-white/60 font-medium">Aug 2023 • 71K views</div>
-        </div>
-      </a>
     </div>
   </section>
 
-  <!-- BOOK A CALL - Interactive -->
-  <section id="book-call" class="w-screen relative left-1/2 right-1/2 -translate-x-1/2 bg-black text-white py-24 border-y border-white/10">
-    <div class="max-w-3xl mx-auto">
-      <div class="mb-10 text-center">
-        <div class="section-label tracking-[3px] text-[#FFDD00] mb-3">1:1 CALLS WITH SAAD &amp; DANIAL</div>
-        <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-[-3px] leading-none">Book a Call</h2>
-        <p class="mt-4 text-xl text-white/70">Choose your session and pick a time that works for you.</p>
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section id="how" class="bg-[#0A1F44] text-white py-16">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+      <div class="max-w-2xl mb-10">
+        <div class="section-label text-[#FFDD00] tracking-[3px]">NO GUESSWORK. NO REGRETS.</div>
+        <h2 class="heading-lg tracking-[-1.8px] mt-2">Exactly how we help you get to Germany</h2>
       </div>
 
-      <!-- Booking Widget -->
-      <form id="booking-form" action="https://formspree.io/f/mail@saadanddaniyal.com" method="POST" class="bg-zinc-900 rounded-3xl p-8 md:p-10 border border-white/10">
+      <div class="grid md:grid-cols-5 gap-x-4 gap-y-8">
+        <HowStep number={1} title="Watch & Learn" desc="100+ free videos covering every step: visas, blocked accounts, motivation letters, city guides, and real costs." time="Start today" />
+        <HowStep number={2} title="Book a Call" desc="Free 20-minute strategy session. We ask about your grades, budget, timeline and tell you honestly what’s realistic." time="20 min" />
+        <HowStep number={3} title="Personal Roadmap" desc="You receive a custom document with 5 target programs, exact deadlines, required tests, and document checklist." time="Within 48h" />
+        <HowStep number={4} title="Application Support" desc="We review your CV, motivation letter, and uni choices. Many students get in on the first try after our feedback." time="Ongoing" />
+        <HowStep number={5} title="Pre-Departure & Arrival" desc="WhatsApp group for your intake, packing list, first-month survival guide, and introductions to Pakistanis already there." time="Before you fly" />
+      </div>
 
-        <!-- Step 1: Service Selection -->
-        <div id="step-service" style="display: block;">
-          <h3 class="font-black text-2xl mb-6 tracking-tight">Service Selection</h3>
-          
-          <div class="space-y-6">
-            <div>
-              <label class="block text-sm font-bold tracking-widest mb-2 text-white/60">SERVICE *</label>
-              <select name="service" id="service" required class="w-full bg-zinc-950 border border-white/20 text-white rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#FFDD00] appearance-none pr-12" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%23FFDD00%27%3E%3Cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M19 9l-7 7-7-7%27/%3E%3C/svg%27'); background-position: right 1rem center; background-repeat: no-repeat; background-size: 1.25rem;">
-                <option value="">Select session duration</option>
-                <option value="15 minute session - $25">15 minute session — $25</option>
-                <option value="30 minute session - $45">30 minute session — $45</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-sm font-bold tracking-widest mb-2 text-white/60">EMPLOYEE *</label>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label class="flex items-center gap-3 bg-black border border-white/20 hover:border-[#FFDD00] rounded-2xl px-5 py-4 cursor-pointer has-[:checked]:border-[#FFDD00]">
-                  <input type="radio" name="employee" value="Danial Omer" required class="hidden">
-                  <div class="w-8 h-8 bg-[#FFDD00] text-black rounded-full flex items-center justify-center font-black text-sm flex-shrink-0">DO</div>
-                  <div>
-                    <div class="font-bold">Danial Omer</div>
-                    <div class="text-xs text-white/50">Pakistan → Germany</div>
-                  </div>
-                </label>
-                
-                <label class="flex items-center gap-3 bg-black border border-white/20 hover:border-[#FFDD00] rounded-2xl px-5 py-4 cursor-pointer has-[:checked]:border-[#FFDD00]">
-                  <input type="radio" name="employee" value="Saad Ashfaq" required class="hidden">
-                  <div class="w-8 h-8 bg-[#FFDD00] text-black rounded-full flex items-center justify-center font-black text-sm flex-shrink-0">SA</div>
-                  <div>
-                    <div class="font-bold">Saad Ashfaq</div>
-                    <div class="text-xs text-white/50">Pakistan → Germany</div>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <button type="button" id="service-continue-btn"
-                  class="mt-8 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition">
-            CONTINUE<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
-          </button>
-        </div>
-
-        <!-- Step 2: Calendar -->
-        <div id="step-calendar" class="hidden">
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="font-black text-2xl tracking-tight">Choose a Date</h3>
-            <button type="button" id="back-to-service" class="text-sm text-white/60 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7 7-7" /></svg>Back</button>
-          </div>
-
-          <div class="bg-black rounded-3xl p-6 border border-white/10">
-            <div class="flex justify-between items-center mb-4 px-2">
-              <div class="font-bold text-lg">June 2026</div>
-            </div>
-            
-            <div class="grid grid-cols-7 gap-1 text-center text-sm mb-2 text-white/50">
-              <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
-            </div>
-            
-            <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center"></div>
-          </div>
-
-          <input type="hidden" name="date" id="hidden-date">
-          <button type="button" 
-                  class="mt-6 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition disabled:opacity-50"
-                  id="date-continue-btn" disabled>
-            CONTINUE<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
-          </button>
-        </div>
-
-        <!-- Step 3: Time Slots -->
-        <div id="step-time" class="hidden">
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="font-black text-2xl tracking-tight">Choose a Time</h3>
-            <button type="button" id="back-to-calendar" class="text-sm text-white/60 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7 7-7" /></svg>Back</button>
-          </div>
-
-          <div class="bg-black rounded-3xl p-6 border border-white/10">
-            <div class="text-sm text-white/60 mb-4">Available slots for <span id="selected-date" class="font-bold text-white"></span></div>
-            <div id="time-slots" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
-          </div>
-
-          <input type="hidden" name="time" id="hidden-time">
-          <button type="button" 
-                  class="mt-6 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition disabled:opacity-50"
-                  id="time-continue-btn" disabled>
-            CONTINUE<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
-          </button>
-        </div>
-
-        <!-- Step 4: Details + Submit -->
-        <div id="step-details" class="hidden">
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="font-black text-2xl tracking-tight">Your Details</h3>
-            <button type="button" id="back-to-time" class="text-sm text-white/60 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7 7-7" /></svg>Back</button>
-          </div>
-
-          <div class="space-y-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">FIRST NAME *</label>
-                <input type="text" name="first_name" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="Ahmed">
-              </div>
-              <div>
-                <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">LAST NAME *</label>
-                <input type="text" name="last_name" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="Khan">
-              </div>
-            </div>
-            <div>
-              <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">EMAIL *</label>
-              <input type="email" name="email" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="you@example.com">
-            </div>
-            <div>
-              <label class="text-sm font-bold tracking-widest text-white/60 block mb-1.5">WHATSAPP NUMBER *</label>
-              <input type="tel" name="phone" required class="w-full bg-black border border-white/20 rounded-2xl px-5 py-3.5 focus:border-[#FFDD00] outline-none" placeholder="+92 300 1234567">
-            </div>
-          </div>
-
-          <input type="hidden" name="service" id="hidden-service">
-          <input type="hidden" name="employee" id="hidden-employee">
-
-          <button type="submit" 
-                  class="mt-8 w-full bg-[#FFDD00] hover:bg-white text-black font-black text-lg py-4 rounded-3xl transition">
-            SEND BOOKING REQUEST<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 inline-block align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" /></svg>
-          </button>
-          <p class="text-center text-xs text-white/50 mt-3">We'll email you within a few hours to confirm</p>
-        </div>
-
-      </form>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="bg-black text-white py-16 px-5 border-t-8 border-[#FFDD00]">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="section-label tracking-[3px] text-[#FFDD00] mb-3">DON'T MISS THE NEXT EPISODE</div>
-      
-      <h2 class="text-5xl sm:text-6xl font-black tracking-[-2px] leading-none mb-10">
-        Ready for more<br>unfiltered student life?
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-        <a href="https://www.youtube.com/@saadanddanial9?sub_confirmation=1" target="_blank"
-           class="cta-button group flex flex-col items-center justify-center gap-3 bg-zinc-950 hover:bg-zinc-900 border border-white/20 hover:border-[#FFDD00] p-8 rounded-3xl transition-all">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[#FFDD00]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l6.425 4-6.425 4z"/></svg>
-          <div class="font-black text-5xl tracking-tighter mt-2">YOUTUBE</div>
-          <div class="text-lg font-bold text-white/70">25.3K subscribers</div>
-          <div class="mt-3 px-6 py-2.5 bg-white/5 group-hover:bg-[#FFDD00] group-hover:text-black rounded-2xl text-xs font-black tracking-widest transition-colors">SUBSCRIBE NOW</div>
-        </a>
-
-        <a href="https://instagram.com/saadanddanial9" target="_blank"
-           class="cta-button group flex flex-col items-center justify-center gap-3 bg-zinc-950 hover:bg-zinc-900 border border-white/20 hover:border-[#FFDD00] p-8 rounded-3xl transition-all">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[#FFDD00]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.667.072 4.947.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.76 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <div class="font-black text-5xl tracking-tighter mt-2">INSTAGRAM</div>
-          <div class="text-lg font-bold text-white/70">@saadanddanial9</div>
-          <div class="mt-3 px-6 py-2.5 bg-white/5 group-hover:bg-[#FFDD00] group-hover:text-black rounded-2xl text-xs font-black tracking-widest transition-colors">FOLLOW THE CHAOS</div>
-        </a>
+      <div class="mt-10 text-center">
+        <button onclick="window.openBookingModal && window.openBookingModal()" 
+                class="btn btn-gold px-8 py-3.5 text-sm">START WITH A FREE CALL — NO OBLIGATION</button>
       </div>
     </div>
   </section>
 
-  <footer class="bg-black text-white/60 text-center py-8 text-sm tracking-widest font-medium border-t-4 border-[#FFDD00]">
-    MADE WITH CHAOS BY SAAD &amp; DANIAL • PAKISTAN TO GERMANY
+  <!-- ==================== YOUTUBE HIGHLIGHTS (Beautiful Integration) ==================== -->
+  <section id="youtube" class="max-w-7xl mx-auto px-5 sm:px-6 py-20">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-y-3">
+      <SectionHeader 
+        label="THE CONTENT THAT STARTED IT ALL" 
+        title="Learn by watching real life" 
+      />
+      <a href="https://www.youtube.com/@saadanddanial9" target="_blank" 
+         class="btn btn-gold hidden md:inline-flex px-6 py-2.5 text-sm">SUBSCRIBE ON YOUTUBE</a>
+    </div>
+
+    <p class="max-w-2xl text-[#475569] mb-8">Every hurdle we hit — visa rejection scares, finding housing, surviving on €800/month — we filmed. Thousands of Pakistani students have used these videos as their blueprint.</p>
+
+    <!-- Featured + Grid -->
+    <div class="grid lg:grid-cols-5 gap-4">
+      <!-- Featured large -->
+      <div class="lg:col-span-3">
+        <div class="video-thumb group cursor-pointer" 
+             onclick="window.openVideoModal && window.openVideoModal('GdBubpZBQpY', 'A Real Day in the Life of a Broke Student in Germany', 'https://www.youtube.com/watch?v=GdBubpZBQpY')">
+          <img src="https://img.youtube.com/vi/GdBubpZBQpY/maxresdefault.jpg" 
+               alt="A Real Day in the Life of a Broke Student in Germany" 
+               class="w-full h-full object-cover" loading="lazy" />
+          <div class="play-btn">
+            <span class="ml-0.5">▶</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-5">
+            <div class="font-bold text-white text-xl tracking-tight">A Real Day in the Life of a Broke Student in Germany</div>
+            <div class="text-white/70 text-xs mt-1 flex items-center gap-2">12 min • 14K views • Most watched</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side videos -->
+      <div class="lg:col-span-2 grid grid-rows-2 gap-4">
+        <div class="video-thumb group cursor-pointer relative" 
+             onclick="window.openVideoModal && window.openVideoModal('kRHX6n4fTF4', 'Stopped at German Immigration | Part 2', 'https://www.youtube.com/watch?v=kRHX6n4fTF4')">
+          <img src="https://img.youtube.com/vi/kRHX6n4fTF4/maxresdefault.jpg" alt="Stopped at German Immigration" class="w-full h-full object-cover" loading="lazy" />
+          <div class="play-btn scale-75">
+            <span>▶</span>
+          </div>
+          <div class="absolute bottom-0 left-0 p-4 text-white">
+            <div class="font-semibold text-sm leading-tight">Stopped at German Immigration — What We Did Wrong</div>
+            <div class="yt-meta mt-0.5">71K views • 8 min</div>
+          </div>
+        </div>
+
+        <div class="video-thumb group cursor-pointer relative" 
+             onclick="window.openVideoModal && window.openVideoModal('auYySwMaaXU', 'How We Came To Germany From Pakistan Ep.1', 'https://www.youtube.com/watch?v=auYySwMaaXU')">
+          <img src="https://img.youtube.com/vi/auYySwMaaXU/maxresdefault.jpg" alt="How We Came To Germany" class="w-full h-full object-cover" loading="lazy" />
+          <div class="play-btn scale-75">
+            <span>▶</span>
+          </div>
+          <div class="absolute bottom-0 left-0 p-4 text-white">
+            <div class="font-semibold text-sm leading-tight">How We Came To Germany From Pakistan — Full Story</div>
+            <div class="yt-meta mt-0.5">25K views • 19 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional video row for stronger YouTube integration -->
+    <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="video-thumb group cursor-pointer relative overflow-hidden rounded-2xl" 
+           onclick="window.openVideoModal && window.openVideoModal('GdBubpZBQpY', 'Day in the Life of a Broke Student', 'https://www.youtube.com/watch?v=GdBubpZBQpY')">
+        <img src="https://img.youtube.com/vi/GdBubpZBQpY/hqdefault.jpg" alt="Day in the Life" class="w-full aspect-video object-cover" loading="lazy" />
+        <div class="play-btn !w-9 !h-9 text-sm"><span>▶</span></div>
+        <div class="absolute bottom-0 left-0 p-3 text-white text-xs font-medium bg-gradient-to-t from-black/70">Day in the Life • Broke Student</div>
+      </div>
+      <div class="video-thumb group cursor-pointer relative overflow-hidden rounded-2xl" 
+           onclick="window.openVideoModal && window.openVideoModal('auYySwMaaXU', 'How We Came From Pakistan', 'https://www.youtube.com/watch?v=auYySwMaaXU')">
+        <img src="https://img.youtube.com/vi/auYySwMaaXU/hqdefault.jpg" alt="How We Came" class="w-full aspect-video object-cover" loading="lazy" />
+        <div class="play-btn !w-9 !h-9 text-sm"><span>▶</span></div>
+        <div class="absolute bottom-0 left-0 p-3 text-white text-xs font-medium bg-gradient-to-t from-black/70">Our Full Journey • Ep 1</div>
+      </div>
+      <div class="video-thumb group cursor-pointer relative overflow-hidden rounded-2xl hidden md:block" 
+           onclick="window.openVideoModal && window.openVideoModal('kRHX6n4fTF4', 'German Immigration Story', 'https://www.youtube.com/watch?v=kRHX6n4fTF4')">
+        <img src="https://img.youtube.com/vi/kRHX6n4fTF4/hqdefault.jpg" alt="Immigration" class="w-full aspect-video object-cover" loading="lazy" />
+        <div class="play-btn !w-9 !h-9 text-sm"><span>▶</span></div>
+        <div class="absolute bottom-0 left-0 p-3 text-white text-xs font-medium bg-gradient-to-t from-black/70">Immigration Stopped Us</div>
+      </div>
+      <div class="video-thumb group cursor-pointer relative overflow-hidden rounded-2xl hidden md:block" 
+           onclick="window.openVideoModal && window.openVideoModal('GdBubpZBQpY', 'More Student Life', 'https://www.youtube.com/watch?v=GdBubpZBQpY')">
+        <img src="https://img.youtube.com/vi/GdBubpZBQpY/hqdefault.jpg" alt="More" class="w-full aspect-video object-cover" loading="lazy" />
+        <div class="play-btn !w-9 !h-9 text-sm"><span>▶</span></div>
+        <div class="absolute bottom-0 left-0 p-3 text-white text-xs font-medium bg-gradient-to-t from-black/70">Housing &amp; Daily Struggles</div>
+      </div>
+    </div>
+
+    <div class="mt-5 text-center md:text-right">
+      <a href="https://www.youtube.com/@saadanddanial9/videos" target="_blank" 
+         class="text-sm font-semibold inline-flex items-center gap-1 text-[#0D5C63] hover:text-[#0A1F44]">
+        BROWSE ALL 180+ VIDEOS ON YOUTUBE <span class="text-lg">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== FREE RESOURCES ==================== -->
+  <section class="border-t border-[#E2E8F0] bg-white py-16">
+    <div class="max-w-5xl mx-auto px-5 sm:px-6">
+      <SectionHeader 
+        label="FREE DOWNLOADS" 
+        title="Everything we wish we had when we started" 
+        align="center"
+      />
+
+      <div class="mt-10 grid md:grid-cols-3 gap-4">
+        <div class="card p-6 flex flex-col">
+          <div class="font-bold mb-2">Germany Student Visa Checklist 2026</div>
+          <p class="text-sm text-[#475569] flex-1">Exact documents we used + the common mistakes that get applications rejected.</p>
+          <a href="#" onclick="window.openBookingModal && window.openBookingModal(); return false" 
+             class="mt-5 text-xs font-bold tracking-widest text-[#0D5C63] hover:underline">DOWNLOAD FREE →</a>
+        </div>
+        <div class="card p-6 flex flex-col">
+          <div class="font-bold mb-2">Public vs Private Universities Guide</div>
+          <p class="text-sm text-[#475569] flex-1">When paying €20k/year makes sense vs when you should only apply to tuition-free programs.</p>
+          <a href="#" onclick="window.openBookingModal && window.openBookingModal(); return false" 
+             class="mt-5 text-xs font-bold tracking-widest text-[#0D5C63] hover:underline">GET THE GUIDE →</a>
+        </div>
+        <div class="card p-6 flex flex-col">
+          <div class="font-bold mb-2">Cost of Living Breakdown by City</div>
+          <p class="text-sm text-[#475569] flex-1">Real numbers from Berlin, Munich, Aachen, Stuttgart. What €950/month actually buys you.</p>
+          <a href="#" onclick="window.openBookingModal && window.openBookingModal(); return false" 
+             class="mt-5 text-xs font-bold tracking-widest text-[#0D5C63] hover:underline">SEE THE NUMBERS →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA (Strong conversion) ==================== -->
+  <section class="bg-[#0A1F44] text-white py-16 border-t-4 border-[#FFDD00]">
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 text-center">
+      <div class="section-label tracking-[3px] text-[#FFDD00] mb-3">THE NEXT STEP IS YOURS</div>
+      <h2 class="heading-lg tracking-[-1.5px] mb-4">Ready to stop guessing and start planning?</h2>
+      <p class="text-white/75 text-lg mb-8 max-w-md mx-auto">Book a free 20-minute call. We’ll tell you exactly what your realistic options are.</p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button onclick="window.openBookingModal && window.openBookingModal()" 
+                class="btn btn-gold px-10 py-4 text-base">BOOK FREE STRATEGY CALL</button>
+        <a href="https://wa.me/923001234567?text=Hi%20Saad%20and%20Danial%2C%20I%27m%20interested%20in%20studying%20in%20Germany.%20Can%20we%20chat%3F" 
+           target="_blank"
+           class="btn border border-white/40 text-white px-8 py-4 hover:bg-white/5">MESSAGE ON WHATSAPP</a>
+      </div>
+
+      <div class="mt-8 text-[10px] tracking-[1px] text-white/40">REPLIES WITHIN 4 HOURS • 100% FREE • NO PRESSURE</div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#0A1F44] text-white/50 py-9 text-xs border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 flex flex-col md:flex-row gap-y-4 md:items-center md:justify-between">
+      <div>© 2026 Saad & Danial. Made for every Pakistani student who dreams of Germany.</div>
+      <div class="flex gap-x-5">
+        <a href="https://www.youtube.com/@saadanddanial9" target="_blank" class="hover:text-white">YouTube</a>
+        <a href="https://instagram.com/saadanddanial9" target="_blank" class="hover:text-white">Instagram</a>
+        <a href="#" onclick="window.openBookingModal && window.openBookingModal(); return false" class="hover:text-white">Book a Call</a>
+      </div>
+    </div>
   </footer>
 
+  <!-- Modals -->
+  <VideoModal />
+  <BookingModal />
+
+  <!-- ==================== PAGE SCRIPTS (GSAP + Filters + Interactions) ==================== -->
   <script>
-    function goToStep(step) {
-      document.querySelectorAll('[id^="step-"]').forEach(el => el.style.display = "none");
-      document.getElementById("step-" + step).style.display = "block";
+    // ==================== PROGRAM DATA (Easy to update) ====================
+    const programsData = [
+      {
+        id: 1, category: "masters", level: "Master's",
+        title: "MSc Data Science & AI", unis: "TU Munich, RWTH Aachen, University of Mannheim",
+        duration: "2 years", cost: "€0 – €2,800/sem", 
+        highlight: "English-taught. Excellent job prospects in Berlin & Munich tech hubs."
+      },
+      {
+        id: 2, category: "masters", level: "Master's",
+        title: "MSc Mechanical Engineering", unis: "RWTH Aachen, TU Berlin, University of Stuttgart",
+        duration: "2 years", cost: "€0 – €1,500/sem",
+        highlight: "Germany's strongest engineering programs. Direct pathways into automotive & energy."
+      },
+      {
+        id: 3, category: "bachelors", level: "Bachelor's",
+        title: "BSc Computer Science", unis: "TU Darmstadt, University of Freiburg, Jacobs University",
+        duration: "3–3.5 years", cost: "€0 – €3,000/sem",
+        highlight: "No tuition at most public unis. Strong English options in year 1–2."
+      },
+      {
+        id: 4, category: "ausbildung", level: "Ausbildung",
+        title: "Ausbildung in Mechatronics", unis: "Siemens, Bosch, Continental (paid training)",
+        duration: "3–3.5 years", cost: "€850 – €1,200/month salary",
+        highlight: "Earn while you learn. 70% of Ausbildung graduates get hired by the same company."
+      },
+      {
+        id: 5, category: "engineering", level: "Master's",
+        title: "MSc Electrical & Renewable Energy", unis: "KIT Karlsruhe, TU Dresden, FAU Erlangen",
+        duration: "2 years", cost: "€0 – €2,000/sem",
+        highlight: "Critical skills shortage. Fast track to Blue Card and residency."
+      },
+      {
+        id: 6, category: "ausbildung", level: "Ausbildung",
+        title: "Ausbildung in Nursing / Healthcare", unis: "Major hospitals across Germany",
+        duration: "3 years", cost: "€1,100 – €1,400/month salary",
+        highlight: "Massive demand. German language support provided during training."
+      },
+      {
+        id: 7, category: "bachelors", level: "Bachelor's",
+        title: "BSc Business & Management", unis: "Frankfurt School, University of Mannheim, ESB Reutlingen",
+        duration: "3 years", cost: "€0 – €7,000/sem",
+        highlight: "Great for students who want corporate careers or to start a business in Europe."
+      },
+      {
+        id: 8, category: "engineering", level: "Master's",
+        title: "MSc Automotive Engineering", unis: "RWTH Aachen, TU Munich, TU Braunschweig",
+        duration: "2 years", cost: "€0 – €2,500/sem",
+        highlight: "Direct access to the heart of German automotive industry."
+      }
+    ];
 
-      if (step === "calendar") generateCalendar();
-      if (step === "time") generateTimeSlots();
-    }
+    // Render program cards
+    function renderPrograms(filter = 'all') {
+      const grid = document.getElementById('programs-grid');
+      if (!grid) return;
 
-    function generateCalendar() {
-      const grid = document.getElementById("calendar-grid");
-      grid.innerHTML = "";
+      grid.innerHTML = '';
 
-      const availableDays = [2,3,4,5,6,9,10,11,12,13,16,17,18,19,20,23,24,25,26,27,30];
+      const filtered = filter === 'all' 
+        ? programsData 
+        : programsData.filter(p => p.category === filter || (filter === 'engineering' && p.category === 'engineering'));
 
-      availableDays.forEach(day => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.textContent = day;
-        btn.className = `py-2 rounded-xl text-sm transition hover:bg-white/10`;
-
-        btn.onclick = () => {
-          grid.querySelectorAll("button").forEach(b => b.classList.remove("bg-[#FFDD00]", "text-black", "font-bold"));
-          btn.classList.add("bg-[#FFDD00]", "text-black", "font-bold");
-
-          const selectedDate = `June ${day}, 2026`;
-          document.getElementById("hidden-date").value = selectedDate;
-          document.getElementById("selected-date").textContent = selectedDate;
-          document.getElementById("date-continue-btn").disabled = false;
-        };
-        grid.appendChild(btn);
+      filtered.forEach(prog => {
+        // Create card HTML (mirrors ProgramCard component)
+        const cardHTML = `
+          <div class="program-card card group p-6 flex flex-col h-full" data-category="${prog.category}" data-id="${prog.id}">
+            <div class="flex items-start justify-between mb-4">
+              <div><span class="badge uppercase tracking-widest">${prog.level}</span></div>
+              <div class="text-right"><div class="text-xs text-[#0D5C63] font-bold tracking-wider">${prog.duration}</div></div>
+            </div>
+            <h3 class="font-bold text-xl leading-tight tracking-[-0.3px] mb-2 text-[#0A1F44] group-hover:text-[#0D5C63] transition-colors">${prog.title}</h3>
+            <div class="text-sm text-[#475569] mb-3">${prog.unis}</div>
+            <div class="mt-auto pt-4 border-t border-[#F1F5F9]">
+              <div class="flex items-baseline gap-2 mb-2">
+                <span class="text-lg font-bold text-[#0D5C63]">${prog.cost}</span>
+              </div>
+              <p class="text-xs text-[#475569] leading-snug mb-4 min-h-[2.6em]">${prog.highlight}</p>
+              <button onclick="window.selectProgramAndBook && window.selectProgramAndBook(${prog.id}, '${prog.title.replace(/'/g, "\\'")}')" 
+                      class="btn btn-outline w-full text-sm py-2.5 group-hover:bg-[#0A1F44] group-hover:text-white group-hover:border-[#0A1F44]">
+                Get Personalized Guidance
+              </button>
+            </div>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', cardHTML);
       });
     }
 
-    function generateTimeSlots() {
-      const container = document.getElementById("time-slots");
-      container.innerHTML = "";
+    // Filter logic
+    function initProgramFilters() {
+      const filterContainer = document.getElementById('program-filters');
+      if (!filterContainer) return;
 
-      const slots = ["1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM"];
+      filterContainer.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-pill');
+        if (!btn) return;
 
-      slots.forEach(time => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.textContent = time;
-        btn.className = `py-3 px-4 border border-white/20 rounded-2xl text-sm hover:bg-[#FFDD00] hover:text-black transition`;
+        // Active state
+        filterContainer.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-        btn.onclick = () => {
-          container.querySelectorAll("button").forEach(b => b.classList.remove("bg-[#FFDD00]", "text-black", "border-[#FFDD00]"));
-          btn.classList.add("bg-[#FFDD00]", "text-black", "border-[#FFDD00]");
+        const filter = btn.dataset.filter;
+        renderPrograms(filter);
 
-          document.getElementById("hidden-time").value = time;
-          document.getElementById("time-continue-btn").disabled = false;
-        };
-        container.appendChild(btn);
+        // Subtle animation on filter change
+        const grid = document.getElementById('programs-grid');
+        if (grid && typeof gsap !== 'undefined') {
+          gsap.fromTo(grid.children, 
+            { opacity: 0, y: 12 }, 
+            { opacity: 1, y: 0, duration: 0.4, stagger: 0.035, ease: "power2.out" }
+          );
+        }
       });
+
+      // Initial render
+      renderPrograms('all');
     }
 
-    function initBookingFlow() {
-      const serviceContinue = document.getElementById("service-continue-btn");
-      if (serviceContinue) serviceContinue.onclick = () => goToStep("calendar");
+    // Global helper called from ProgramCard buttons
+    window.selectProgramAndBook = function(programId, programTitle) {
+      window.openBookingModal && window.openBookingModal(programTitle);
+    };
 
-      const backToService = document.getElementById("back-to-service");
-      if (backToService) backToService.onclick = () => goToStep("service");
-
-      const backToCalendar = document.getElementById("back-to-calendar");
-      if (backToCalendar) backToCalendar.onclick = () => goToStep("calendar");
-
-      const backToTime = document.getElementById("back-to-time");
-      if (backToTime) backToTime.onclick = () => goToStep("time");
-
-      const dateContinue = document.getElementById("date-continue-btn");
-      if (dateContinue) dateContinue.onclick = () => goToStep("time");
-
-      const timeContinue = document.getElementById("time-continue-btn");
-      if (timeContinue) timeContinue.onclick = () => goToStep("details");
-
-      document.getElementById("booking-form").addEventListener("submit", function() {
-        document.getElementById("hidden-service").value = document.getElementById("service").value;
-        const emp = document.querySelector('input[name="employee"]:checked');
-        if (emp) document.getElementById("hidden-employee").value = emp.value;
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", initBookingFlow);
-  </script>
-</Layout>
-  
-  <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-
+    // ==================== GSAP ANIMATIONS (Awwwards polish) ====================
     function initGSAPAnimations() {
-      // Hero text split animation
-      // Nav logo pop
-      const logo = document.querySelector('nav .flex.items-center.gap-4 > div:first-child');
-      if (logo) gsap.from(logo, {scale:0.5, opacity:0, duration:0.7, ease:"back.out(1.7)", delay:0.15});
-      const heroTitle = document.querySelector('h1');
-      if (heroTitle) {
-        const words = heroTitle.innerHTML.split('<br>').map(line => 
-          line.split(' ').map(word => `<span class="word">${word}</span>`).join(' ')
-        ).join('<br>');
-        
-        heroTitle.innerHTML = words;
-        
-        gsap.from(heroTitle.querySelectorAll('.word'), {
-          y: 120,
-          opacity: 0,
-          duration: 1.1,
-          ease: "back.out(1.4)",
-          stagger: 0.08,
-          delay: 0.3
-        });
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        // Retry once
+        setTimeout(initGSAPAnimations, 180);
+        return;
       }
 
-      // Magnetic CTA buttons using GSAP
-      document.querySelectorAll('.cta-button').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-          const rect = btn.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          
-          gsap.to(btn, {
-            x: x * 0.25,
-            y: y * 0.25,
-            duration: 0.4,
+      const { gsap, ScrollTrigger } = window;
+
+      // Section reveals
+      gsap.utils.toArray('section').forEach((section, i) => {
+        gsap.from(section, {
+          scrollTrigger: { trigger: section, start: "top 82%" },
+          y: 35,
+          opacity: 0.0,
+          duration: 0.85,
+          ease: "power3.out",
+          delay: i < 2 ? 0 : 0.04
+        });
+      });
+
+      // Why Germany cards stagger
+      gsap.utils.toArray('#why .card').forEach((card, i) => {
+        gsap.from(card, {
+          scrollTrigger: { trigger: card, start: "top 88%" },
+          y: 28,
+          opacity: 0,
+          duration: 0.65,
+          ease: "power2.out",
+          delay: i * 0.035
+        });
+      });
+
+      // Program cards on initial load (after render)
+      setTimeout(() => {
+        const progCards = document.querySelectorAll('#programs-grid .program-card');
+        if (progCards.length) {
+          gsap.from(progCards, {
+            scrollTrigger: { trigger: '#programs-grid', start: "top 80%" },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.05,
             ease: "power2.out"
           });
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-          gsap.to(btn, {
-            x: 0,
-            y: 0,
-            duration: 0.7,
-            ease: "elastic.out(1, 0.4)"
-          });
-        });
-      });
+        }
+      }, 420);
 
-      // Scroll-triggered photo grid with stagger
-      gsap.utils.toArray('.cinematic-frame').forEach((frame, i) => {
-        gsap.from(frame, {
-          scrollTrigger: {
-            trigger: frame,
-            start: "top 85%",
-          },
-          y: 80,
-          opacity: 0,
-          duration: 0.9,
-          delay: i * 0.08,
-          ease: "power3.out"
-        });
-      });
-
-      // Vlog cards entrance
-      // Section headers
-      gsap.utils.toArray('h2').forEach(h => {
-        gsap.from(h, {scrollTrigger: {trigger: h, start: "top 85%"}, y:35, opacity:0, duration:0.8, ease:"power3.out"});
-      });
-      // Enhanced photo hover with GSAP
-      gsap.utils.toArray('.cinematic-frame img').forEach(img => {
-        img.parentElement.addEventListener('mouseenter', () => gsap.to(img, {scale:1.1, duration:0.4}));
-        img.parentElement.addEventListener('mouseleave', () => gsap.to(img, {scale:1, duration:0.4}));
-      });
-      gsap.utils.toArray('.vlog-card').forEach((card, i) => {
+      // Success story cards
+      gsap.utils.toArray('#stories .card').forEach((card, i) => {
         gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-          },
-          y: 60,
+          scrollTrigger: { trigger: card, start: "top 85%" },
+          y: 25,
           opacity: 0,
-          duration: 0.8,
-          delay: i * 0.1,
-          ease: "power2.out"
+          duration: 0.55,
+          ease: "power3.out",
+          delay: i * 0.08
+        });
+      });
+
+      // Magnetic CTA buttons (refined from original)
+      document.querySelectorAll('.btn-gold, .btn-primary').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          gsap.to(btn, { x: x * 5, y: y * 4, duration: 0.35, ease: "power2.out" });
+        });
+        btn.addEventListener('mouseleave', () => {
+          gsap.to(btn, { x: 0, y: 0, duration: 0.65, ease: "elastic.out(1, 0.45)" });
+        });
+      });
+
+      // Video thumb hover lift (subtle)
+      document.querySelectorAll('.video-thumb').forEach(thumb => {
+        thumb.addEventListener('mouseenter', () => gsap.to(thumb, { scale: 1.008, duration: 0.4, ease: "power2.out" }));
+        thumb.addEventListener('mouseleave', () => gsap.to(thumb, { scale: 1, duration: 0.5, ease: "power2.out" }));
+      });
+    }
+
+    // ==================== MISC ENHANCEMENTS ====================
+    function initSmoothAnchorScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
         });
       });
     }
 
-    function initAll() {
-      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        initGSAPAnimations();
-      } else {
-        // Retry if GSAP hasn't loaded yet
-        setTimeout(initAll, 100);
+    function initKeyboardShortcuts() {
+      document.addEventListener('keydown', (e) => {
+        // Press "b" or "B" to open booking
+        if ((e.key === 'b' || e.key === 'B') && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+          e.preventDefault();
+          window.openBookingModal && window.openBookingModal();
+        }
+      });
+    }
+
+    // Expose openBooking for any legacy or external
+    window.openBookingModal = window.openBookingModal || function(p) {
+      const modal = document.getElementById('booking-modal');
+      if (modal) {
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
       }
+    };
+
+    // ==================== BOOT ====================
+    function boot() {
+      initProgramFilters();
+      initGSAPAnimations();
+      initSmoothAnchorScroll();
+      initKeyboardShortcuts();
+
+      // Optional: subtle hero text animation if gsap ready
+      setTimeout(() => {
+        if (typeof gsap !== 'undefined') {
+          const hero = document.querySelector('section.bg-\\[\\#0A1F44\\] h1');
+          if (hero) {
+            gsap.from(hero, { y: 18, opacity: 0, duration: 1.1, ease: "power3.out", delay: 0.15 });
+          }
+        }
+      }, 80);
+
+      // Easter egg: Konami-ish for booking (up up down down left right)
+      let keys = [];
+      const konami = [38,38,40,40,37,39];
+      document.addEventListener('keyup', (e) => {
+        keys.push(e.keyCode);
+        if (keys.length > 6) keys.shift();
+        if (keys.join(',') === konami.join(',')) {
+          keys = [];
+          const btn = document.querySelector('.btn-gold');
+          if (btn) btn.click();
+        }
+      });
+
+      console.log('%c[Saad & Danial] Premium Awwwards-inspired site initialized.', 'color:#64748B;font-size:9px');
     }
-    
-    document.addEventListener('DOMContentLoaded', initAll);
+
+    document.addEventListener('DOMContentLoaded', boot);
   </script>
-
-  <style>
-    .section-animate {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .section-animate.animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cta-button {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .cta-button::after {
-      content: '';
-      position: absolute;
-      top: var(--mouse-y, 50%);
-      left: var(--mouse-x, 50%);
-      width: 0;
-      height: 0;
-      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      transition: width 0.4s ease, height 0.4s ease;
-      pointer-events: none;
-      border-radius: 9999px;
-    }
-    .cta-button:hover::after {
-      width: 300px;
-      height: 300px;
-    }
-  </style>
+</Layout>

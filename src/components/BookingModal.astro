@@ -1,0 +1,290 @@
+---
+// High-conversion booking modal - clean, trustworthy, WhatsApp-first UX
+// Inspired by premium education sites on Awwwards
+---
+
+<div id="booking-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Book a free consultation">
+  <div class="modal-backdrop" onclick="window.closeBookingModal && window.closeBookingModal()"></div>
+  
+  <div class="modal-content max-w-[500px] mx-4">
+    <!-- Success State (hidden by default) -->
+    <div id="booking-success" class="success-state hidden">
+      <div class="success-icon">
+        <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.75">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18" />
+        </svg>
+      </div>
+      <h3 class="font-bold text-2xl tracking-tight text-[#0A1F44] mb-2">Request received!</h3>
+      <p class="text-[#475569] mb-6 text-[15px]">We'll message you on WhatsApp within a few hours to confirm your slot.</p>
+      
+      <div class="flex flex-col gap-3">
+        <a href="https://wa.me/923001234567?text=Hi%20Saad%20%26%20Danial%2C%20I%20just%20submitted%20a%20booking%20request%20for%20Germany%20guidance." 
+           target="_blank"
+           class="btn btn-gold w-full py-3 text-base">
+          Message us on WhatsApp now
+        </a>
+        <button onclick="window.closeBookingModal && window.closeBookingModal()" 
+                class="btn btn-ghost text-sm">
+          Close window
+        </button>
+      </div>
+    </div>
+
+    <!-- Form State -->
+    <div id="booking-form-state">
+      <div class="px-6 pt-6 pb-2">
+        <div class="flex justify-between items-start">
+          <div>
+            <div class="section-label text-[#0D5C63]">FREE 20-MIN STRATEGY CALL</div>
+            <h3 class="font-black text-[26px] tracking-[-1px] text-[#0A1F44] leading-none mt-1">Let's plan your Germany journey</h3>
+          </div>
+          <button onclick="window.closeBookingModal && window.closeBookingModal()" 
+                  class="text-[#94A3B8] hover:text-[#0A1F44] p-1 -mr-1" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <p class="text-sm text-[#475569] mt-3">No sales pitch. Honest answers from students who did it.</p>
+      </div>
+
+      <form id="booking-form" class="px-6 pb-6 pt-2 space-y-4" onsubmit="return window.handleBookingSubmit && window.handleBookingSubmit(event)">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="form-label">FULL NAME *</label>
+            <input type="text" name="name" required class="form-input" placeholder="Ahmed Khan" />
+          </div>
+          <div>
+            <label class="form-label">CITY IN PAKISTAN *</label>
+            <input type="text" name="city" required class="form-input" placeholder="Karachi, Lahore, Islamabad..." />
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label">EMAIL ADDRESS *</label>
+          <input type="email" name="email" required class="form-input" placeholder="you@email.com" />
+        </div>
+
+        <div>
+          <label class="form-label">WHATSAPP NUMBER *</label>
+          <div class="relative">
+            <div class="absolute left-4 top-3.5 text-sm text-[#64748B] font-medium">+92</div>
+            <input type="tel" name="whatsapp" required class="form-input pl-12" placeholder="300 1234567" />
+          </div>
+          <p class="text-[10px] text-[#94A3B8] mt-1 px-1">We'll confirm via WhatsApp — fastest for Pakistan</p>
+        </div>
+
+        <div>
+          <label class="form-label">I'M INTERESTED IN *</label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="interest-chips">
+            <label class="interest-chip">
+              <input type="checkbox" name="interest" value="Master's" class="hidden" />
+              <span class="chip-inner">Master's Degree</span>
+            </label>
+            <label class="interest-chip">
+              <input type="checkbox" name="interest" value="Bachelor's" class="hidden" />
+              <span class="chip-inner">Bachelor's Degree</span>
+            </label>
+            <label class="interest-chip">
+              <input type="checkbox" name="interest" value="Ausbildung" class="hidden" />
+              <span class="chip-inner">Ausbildung</span>
+            </label>
+            <label class="interest-chip">
+              <input type="checkbox" name="interest" value="Visa Help" class="hidden" />
+              <span class="chip-inner">Student Visa</span>
+            </label>
+            <label class="interest-chip">
+              <input type="checkbox" name="interest" value="Job Search" class="hidden" />
+              <span class="chip-inner">Job / Blue Card</span>
+            </label>
+            <label class="interest-chip">
+              <input type="checkbox" name="interest" value="General" class="hidden" />
+              <span class="chip-inner">General Advice</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label">WHEN ARE YOU PLANNING TO MOVE?</label>
+          <select name="timeline" class="form-input">
+            <option value="2026">2026 (this year)</option>
+            <option value="2027">2027</option>
+            <option value="2028+">2028 or later</option>
+            <option value="unsure">Still exploring</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="form-label">ANY SPECIFIC QUESTION OR GOAL? (OPTIONAL)</label>
+          <textarea name="message" rows="2" class="form-input resize-y min-h-[64px]" 
+            placeholder="e.g. Which universities accept my GPA for Data Science?"></textarea>
+        </div>
+
+        <button type="submit" 
+                class="btn btn-gold w-full py-[15px] text-base mt-2 flex items-center justify-center gap-2">
+          REQUEST MY FREE CALL
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <p class="text-center text-[10px] text-[#94A3B8] tracking-wide">We reply within 4 hours on average • 100% free advice</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .interest-chip {
+    cursor: pointer;
+  }
+  .interest-chip input:checked + .chip-inner {
+    background: #0D5C63;
+    color: white;
+    border-color: #0D5C63;
+  }
+  .chip-inner {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 999px;
+    text-align: center;
+    transition: all 0.1s ease;
+    background: white;
+  }
+  .chip-inner:hover {
+    border-color: #0D5C63;
+    color: #0D5C63;
+  }
+</style>
+
+<script>
+  // Booking modal controls + form handling (WhatsApp friendly)
+  window.openBookingModal = function(prefilledProgram = null) {
+    const modal = document.getElementById('booking-modal');
+    const formState = document.getElementById('booking-form-state');
+    const successState = document.getElementById('booking-success');
+
+    if (!modal) return;
+
+    // Reset to form state
+    formState.classList.remove('hidden');
+    successState.classList.add('hidden');
+    
+    // Clear form
+    const form = document.getElementById('booking-form');
+    if (form) form.reset();
+    
+    // Reset chips visual
+    document.querySelectorAll('.interest-chip input').forEach(cb => {
+      cb.checked = false;
+      cb.parentElement.querySelector('.chip-inner').style.background = '';
+      cb.parentElement.querySelector('.chip-inner').style.color = '';
+      cb.parentElement.querySelector('.chip-inner').style.borderColor = '';
+    });
+
+    // Pre-fill if program was selected
+    if (prefilledProgram) {
+      const msg = document.querySelector('#booking-form textarea[name="message"]');
+      if (msg) msg.value = `Interested in guidance for: ${prefilledProgram}`;
+    }
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Focus first input
+    setTimeout(() => {
+      const first = modal.querySelector('input[name="name"]');
+      if (first) first.focus();
+    }, 420);
+  };
+
+  window.closeBookingModal = function() {
+    const modal = document.getElementById('booking-modal');
+    if (!modal) return;
+    
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  // Chip toggle visual + form handling
+  function initInterestChips() {
+    document.querySelectorAll('.interest-chip input').forEach(input => {
+      input.addEventListener('change', () => {
+        const inner = input.parentElement.querySelector('.chip-inner');
+        if (input.checked) {
+          inner.style.background = '#0D5C63';
+          inner.style.color = 'white';
+          inner.style.borderColor = '#0D5C63';
+        } else {
+          inner.style.background = '';
+          inner.style.color = '';
+          inner.style.borderColor = '';
+        }
+      });
+    });
+  }
+
+  window.handleBookingSubmit = function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    const name = formData.get('name');
+    const whatsapp = formData.get('whatsapp');
+    const interests = formData.getAll('interest').join(', ') || 'General guidance';
+    const timeline = formData.get('timeline');
+    const city = formData.get('city');
+    const message = formData.get('message') || '';
+
+    // Build nice WhatsApp message
+    const text = encodeURIComponent(
+      `Hi Saad & Danial,\n\n` +
+      `I'm ${name} from ${city}. I'd like to book a free strategy call.\n\n` +
+      `Interested in: ${interests}\n` +
+      `Timeline: ${timeline}\n` +
+      (message ? `Question: ${message}\n` : '') +
+      `\nWhatsApp: +92${whatsapp}\n` +
+      `Email: ${formData.get('email')}`
+    );
+
+    // Show success UI immediately (high trust + instant gratification)
+    const formState = document.getElementById('booking-form-state');
+    const success = document.getElementById('booking-success');
+    
+    formState.classList.add('hidden');
+    success.classList.remove('hidden');
+
+    // Open WhatsApp in new tab after short delay (conversion hack)
+    setTimeout(() => {
+      window.open(`https://wa.me/923001234567?text=${text}`, '_blank');
+    }, 850);
+
+    // Optional: You could still POST to Formspree here in background for email backup
+    // For now we keep it simple and reliable.
+
+    return false;
+  };
+
+  // Init on load
+  document.addEventListener('DOMContentLoaded', () => {
+    initInterestChips();
+    
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('booking-modal');
+      if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+        window.closeBookingModal();
+      }
+    });
+
+    // Expose for global access from other components
+    window.openBookingModal = window.openBookingModal;
+  });
+</script>
