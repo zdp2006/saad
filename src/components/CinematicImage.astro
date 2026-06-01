@@ -1,0 +1,39 @@
+---
+/**
+ * CinematicImage — Editorial film treatment wrapper
+ * Signature visual for "Clarity in Motion" (Awwwards cinematic editorial)
+ * 
+ * - Real photography only (no illustrations)
+ * - Film grain + vignette via CSS (perf-safe, pointer-events-none)
+ * - Optional letterbox bars for featured "film still" moments
+ * - Astro Image/Picture ready (future optimization pass)
+ * - Emil-compliant hover (transform + opacity only, 820ms cinematic)
+ */
+interface Props {
+  src: string;
+  alt: string;
+  aspect?: string; // e.g. "4/4.7" or "16/9"
+  letterbox?: boolean;
+  priority?: boolean;
+  class?: string;
+}
+
+const { src, alt, aspect = '4/4.7', letterbox = false, priority = false, class: className = '' } = Astro.props;
+---
+
+<div 
+  class:list={[
+    'cinematic-frame group overflow-hidden',
+    letterbox && 'cinematic-frame--letterbox',
+    className
+  ]}
+>
+  <img 
+    src={src}
+    alt={alt}
+    class="w-full h-full object-cover"
+    loading={priority ? 'eager' : 'lazy'}
+    decoding="async"
+    style={{ aspectRatio: aspect }}
+  />
+</div>

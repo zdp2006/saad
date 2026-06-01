@@ -1,0 +1,56 @@
+[
+  {
+    "id": "featured-1",
+    "videoId": "GdBubpZBQpY",
+    "title": "A Real Day in the Life of a Broke Student in Germany",
+    "duration": "12 min",
+    "views": "14K",
+    "meta": "Most watched",
+    "ytUrl": "https://www.youtube.com/watch?v=GdBubpZBQpY"
+  },
+  {
+    "id": "side-1",
+    "videoId": "kRHX6n4fTF4",
+    "title": "Stopped at German Immigration — What We Did Wrong",
+    "duration": "8 min",
+    "views": "71K",
+    "meta": "",
+    "ytUrl": "https://www.youtube.com/watch?v=kRHX6n4fTF4"
+  },
+  {
+    "id": "side-2",
+    "videoId": "auYySwMaaXU",
+    "title": "How We Came To Germany From Pakistan — Full Story",
+    "duration": "19 min",
+    "views": "25K",
+    "meta": "",
+    "ytUrl": "https://www.youtube.com/watch?v=auYySwMaaXU"
+  },
+  {
+    "id": "grid-1",
+    "videoId": "GdBubpZBQpY",
+    "title": "Day in the Life • Broke Student",
+    "duration": "12 min",
+    "views": "",
+    "meta": "",
+    "ytUrl": "https://www.youtube.com/watch?v=GdBubpZBQpY"
+  },
+  {
+    "id": "grid-2",
+    "videoId": "auYySwMaaXU",
+    "title": "Our Full Journey • Ep 1",
+    "duration": "19 min",
+    "views": "",
+    "meta": "",
+    "ytUrl": "https://www.youtube.com/watch?v=auYySwMaaXU"
+  },
+  {
+    "id": "grid-3",
+    "videoId": "kRHX6n4fTF4",
+    "title": "Immigration Stopped Us",
+    "duration": "8 min",
+    "views": "",
+    "meta": "",
+    "ytUrl": "https://www.youtube.com/watch?v=kRHX6n4fTF4"
+  }
+]

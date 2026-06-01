@@ -152,7 +152,8 @@
     border: 1px solid #E2E8F0;
     border-radius: 999px;
     text-align: center;
-    transition: all 0.1s ease;
+    /* Emil: specific, fast micro feedback */
+    transition: transform 120ms var(--ease-out), background-color 120ms ease, color 120ms ease, border-color 120ms ease;
     background: white;
   }
   .chip-inner:hover {

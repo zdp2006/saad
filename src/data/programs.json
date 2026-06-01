@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "category": "masters",
+    "level": "Master's",
+    "title": "MSc Data Science & AI",
+    "unis": "TU Munich, RWTH Aachen, University of Mannheim",
+    "duration": "2 years",
+    "cost": "€0 – €2,800/sem",
+    "highlight": "English-taught. Excellent job prospects in Berlin & Munich tech hubs."
+  },
+  {
+    "id": 2,
+    "category": "masters",
+    "level": "Master's",
+    "title": "MSc Mechanical Engineering",
+    "unis": "RWTH Aachen, TU Berlin, University of Stuttgart",
+    "duration": "2 years",
+    "cost": "€0 – €1,500/sem",
+    "highlight": "Germany's strongest engineering programs. Direct pathways into automotive & energy."
+  },
+  {
+    "id": 3,
+    "category": "bachelors",
+    "level": "Bachelor's",
+    "title": "BSc Computer Science",
+    "unis": "TU Darmstadt, University of Freiburg, Jacobs University",
+    "duration": "3–3.5 years",
+    "cost": "€0 – €3,000/sem",
+    "highlight": "No tuition at most public unis. Strong English options in year 1–2."
+  },
+  {
+    "id": 4,
+    "category": "ausbildung",
+    "level": "Ausbildung",
+    "title": "Ausbildung in Mechatronics",
+    "unis": "Siemens, Bosch, Continental (paid training)",
+    "duration": "3–3.5 years",
+    "cost": "€850 – €1,200/month salary",
+    "highlight": "Earn while you learn. 70% of Ausbildung graduates get hired by the same company."
+  },
+  {
+    "id": 5,
+    "category": "engineering",
+    "level": "Master's",
+    "title": "MSc Electrical & Renewable Energy",
+    "unis": "KIT Karlsruhe, TU Dresden, FAU Erlangen",
+    "duration": "2 years",
+    "cost": "€0 – €2,000/sem",
+    "highlight": "Critical skills shortage. Fast track to Blue Card and residency."
+  },
+  {
+    "id": 6,
+    "category": "ausbildung",
+    "level": "Ausbildung",
+    "title": "Ausbildung in Nursing / Healthcare",
+    "unis": "Major hospitals across Germany",
+    "duration": "3 years",
+    "cost": "€1,100 – €1,400/month salary",
+    "highlight": "Massive demand. German language support provided during training."
+  },
+  {
+    "id": 7,
+    "category": "bachelors",
+    "level": "Bachelor's",
+    "title": "BSc Business & Management",
+    "unis": "Frankfurt School, University of Mannheim, ESB Reutlingen",
+    "duration": "3 years",
+    "cost": "€0 – €7,000/sem",
+    "highlight": "Great for students who want corporate careers or to start a business in Europe."
+  },
+  {
+    "id": 8,
+    "category": "engineering",
+    "level": "Master's",
+    "title": "MSc Automotive Engineering",
+    "unis": "RWTH Aachen, TU Munich, TU Braunschweig",
+    "duration": "2 years",
+    "cost": "€0 – €2,500/sem",
+    "highlight": "Direct access to the heart of German automotive industry."
+  }
+]

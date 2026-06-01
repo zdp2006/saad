@@ -6,13 +6,28 @@ import ProgramCard from '../components/ProgramCard.astro';
 import VideoModal from '../components/VideoModal.astro';
 import BookingModal from '../components/BookingModal.astro';
 import HowStep from '../components/HowStep.astro';
+import CinematicImage from '../components/CinematicImage.astro';
+
+// Data-driven content (Phase 1 foundation — easy to update, no hardcodes)
+import programsData from '../data/programs.json';
+import videosData from '../data/videos.json';
+import testimonialsData from '../data/testimonials.json';
+
+import type { Program, Video, Testimonial } from '../types/content';
+
+// Typed for client script consumption
+const programs = programsData as unknown as Program[];
+const videos = videosData as unknown as Video[];
+const testimonials = testimonialsData as unknown as Testimonial[];
 ---
 
 <Layout title="Saad & Danial | Study in Germany — Real Guidance for Pakistani Students">
   <Navbar />
 
-  <!-- ==================== HERO (Premium, conversion-first) ==================== -->
-  <section class="relative overflow-hidden bg-[#0A1F44] text-white pt-16 pb-20 md:pt-20 md:pb-24 border-b-4 border-[#FFDD00]">
+  <!-- ==================== HERO — Cinematic "Clarity Veil" (Signature Editorial Reveal) ==================== -->
+  <section class="relative overflow-hidden bg-[#0A1F44] text-white pt-16 pb-20 md:pt-20 md:pb-24 border-b-4 border-[#FFDD00] cinematic-hero">
+    <!-- Subtle film veil / grain for cinematic depth (fixed, pointer-events-none) -->
+    <div class="absolute inset-0 pointer-events-none z-0 opacity-40" style="background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 4px 4px; mix-blend-mode: multiply;"></div>
     <div class="max-w-5xl mx-auto px-5 sm:px-6 text-center relative z-10">
       <!-- Trust badge -->
       <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-5 h-9 rounded-3xl text-xs font-bold tracking-[2px] mb-7 border border-white/20">
@@ -20,10 +35,10 @@ import HowStep from '../components/HowStep.astro';
         25,400+ STUDENTS • 3+ YEARS DOCUMENTING THE JOURNEY
       </div>
 
-      <h1 class="heading-xl tracking-[-3.8px] leading-[0.9] mb-6">
-        From Pakistan.<br />
-        <span class="text-[#FFDD00]">To Germany.</span><br />
-        With clarity.
+      <h1 class="heading-xl tracking-[-3.8px] leading-[0.9] mb-6 cinematic-hero-headline">
+        <span class="hero-word">From Pakistan.</span><br />
+        <span class="hero-word text-[#FFDD00]">To Germany.</span><br />
+        <span class="hero-word">With clarity.</span>
       </h1>
 
       <p class="max-w-[42ch] mx-auto text-xl md:text-2xl text-white/80 tracking-tight mb-10">
@@ -70,10 +85,17 @@ import HowStep from '../components/HowStep.astro';
 
       <div class="md:col-span-7">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div class="cinematic-frame"><img src="/images/saad-danial-1.jpg" alt="Saad & Danial at the Berlin Wall" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
-          <div class="cinematic-frame"><img src="/images/saad-danial-2.jpg" alt="Saad & Danial at a mountain viewpoint in Austria" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
-          <div class="cinematic-frame"><img src="/images/saad-danial-3.jpg" alt="Saad & Danial reviewing footage" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
-          <div class="cinematic-frame"><img src="/images/saad-danial-4.jpg" alt="Saad & Danial on a European street" class="w-full aspect-[4/4.7] object-cover" loading="lazy" /></div>
+          <CinematicImage src="/images/saad-danial-1.jpg" alt="Saad & Danial at the Berlin Wall — early days in Germany" aspect="4/4.7" />
+          <CinematicImage src="/images/saad-danial-2.jpg" alt="Saad & Danial at a mountain viewpoint in Austria during a break from studies" aspect="4/4.7" />
+          <CinematicImage src="/images/saad-danial-3.jpg" alt="Saad & Danial reviewing footage for the YouTube channel that would help thousands" aspect="4/4.7" />
+          <CinematicImage src="/images/saad-danial-4.jpg" alt="Saad & Danial on a European street — the journey documented in real time" aspect="4/4.7" />
+        </div>
+        <!-- Editorial filmstrip captions (developed photo essay feel) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-2 text-[10px] text-[#475569] tracking-[0.5px] font-medium">
+          <div class="px-1 cinematic-reveal">Berlin Wall • 2022</div>
+          <div class="px-1 cinematic-reveal">Tyrol Alps • 2023</div>
+          <div class="px-1 cinematic-reveal">Editing Suite • 2024</div>
+          <div class="px-1 cinematic-reveal">Munich Streets • 2025</div>
         </div>
       </div>
     </div>
@@ -90,15 +112,39 @@ import HowStep from '../components/HowStep.astro';
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
       {[
-        { icon: "🎓", title: "Tuition-Free or Low-Cost", desc: "Most public universities charge €0–€3,000 per semester. Quality that rivals UK & USA at 1/5th the cost." },
-        { icon: "💼", title: "18-Month Job Seeker Visa", desc: "Stay after graduation to find work. Strong demand in engineering, IT, healthcare, and logistics." },
-        { icon: "🏠", title: "Clear Path to PR", desc: "After 2 years of skilled work you can apply for permanent residency. Many Pakistanis have done it." },
-        { icon: "🌍", title: "English-Taught Programs", desc: "1,500+ Master's programs taught entirely in English. No German required to start studying." },
-        { icon: "👥", title: "Large Pakistani Community", desc: "Thriving student networks in Berlin, Munich, Frankfurt, Hamburg. You won't feel alone." },
-        { icon: "📈", title: "High ROI & Safety", desc: "Germany ranks among safest countries. Excellent healthcare, public transport, and work-life balance." }
+        { 
+          icon: <svg class="w-7 h-7 text-[#0D5C63] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>, 
+          title: "Tuition-Free or Low-Cost", 
+          desc: "Most public universities charge €0–€3,000 per semester. Quality that rivals UK & USA at 1/5th the cost." 
+        },
+        { 
+          icon: <svg class="w-7 h-7 text-[#0D5C63] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>, 
+          title: "18-Month Job Seeker Visa", 
+          desc: "Stay after graduation to find work. Strong demand in engineering, IT, healthcare, and logistics." 
+        },
+        { 
+          icon: <svg class="w-7 h-7 text-[#0D5C63] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1v-5.5M19 10v10a1 1 0 01-1 1h-2m-6 0a1 1 0 001-1v-5m0 5v5a1 1 0 01-1 1H9m4 0H9" /></svg>, 
+          title: "Clear Path to PR", 
+          desc: "After 2 years of skilled work you can apply for permanent residency. Many Pakistanis have done it." 
+        },
+        { 
+          icon: <svg class="w-7 h-7 text-[#0D5C63] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>, 
+          title: "English-Taught Programs", 
+          desc: "1,500+ Master's programs taught entirely in English. No German required to start studying." 
+        },
+        { 
+          icon: <svg class="w-7 h-7 text-[#0D5C63] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 01-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>, 
+          title: "Large Pakistani Community", 
+          desc: "Thriving student networks in Berlin, Munich, Frankfurt, Hamburg. You won't feel alone." 
+        },
+        { 
+          icon: <svg class="w-7 h-7 text-[#0D5C63] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>, 
+          title: "High ROI & Safety", 
+          desc: "Germany ranks among safest countries. Excellent healthcare, public transport, and work-life balance." 
+        }
       ].map((b, i) => (
         <div class="card p-6 group" data-aos-delay={i * 40}>
-          <div class="text-3xl mb-4 opacity-90">{b.icon}</div>
+          <div class="mb-4">{b.icon}</div>
           <h4 class="font-bold text-lg tracking-tight mb-2 text-[#0A1F44]">{b.title}</h4>
           <p class="text-sm leading-relaxed text-[#475569]">{b.desc}</p>
         </div>
@@ -397,59 +443,17 @@ import HowStep from '../components/HowStep.astro';
   <VideoModal />
   <BookingModal />
 
+  <!-- Pass data-driven content to client scripts (no duplication) -->
+  <script define:vars={{ programs, videos, testimonials }}>
+    window.__PROGRAMS = programs;
+    window.__VIDEOS = videos;
+    window.__TESTIMONIALS = testimonials;
+  </script>
+
   <!-- ==================== PAGE SCRIPTS (GSAP + Filters + Interactions) ==================== -->
   <script>
-    // ==================== PROGRAM DATA (Easy to update) ====================
-    const programsData = [
-      {
-        id: 1, category: "masters", level: "Master's",
-        title: "MSc Data Science & AI", unis: "TU Munich, RWTH Aachen, University of Mannheim",
-        duration: "2 years", cost: "€0 – €2,800/sem", 
-        highlight: "English-taught. Excellent job prospects in Berlin & Munich tech hubs."
-      },
-      {
-        id: 2, category: "masters", level: "Master's",
-        title: "MSc Mechanical Engineering", unis: "RWTH Aachen, TU Berlin, University of Stuttgart",
-        duration: "2 years", cost: "€0 – €1,500/sem",
-        highlight: "Germany's strongest engineering programs. Direct pathways into automotive & energy."
-      },
-      {
-        id: 3, category: "bachelors", level: "Bachelor's",
-        title: "BSc Computer Science", unis: "TU Darmstadt, University of Freiburg, Jacobs University",
-        duration: "3–3.5 years", cost: "€0 – €3,000/sem",
-        highlight: "No tuition at most public unis. Strong English options in year 1–2."
-      },
-      {
-        id: 4, category: "ausbildung", level: "Ausbildung",
-        title: "Ausbildung in Mechatronics", unis: "Siemens, Bosch, Continental (paid training)",
-        duration: "3–3.5 years", cost: "€850 – €1,200/month salary",
-        highlight: "Earn while you learn. 70% of Ausbildung graduates get hired by the same company."
-      },
-      {
-        id: 5, category: "engineering", level: "Master's",
-        title: "MSc Electrical & Renewable Energy", unis: "KIT Karlsruhe, TU Dresden, FAU Erlangen",
-        duration: "2 years", cost: "€0 – €2,000/sem",
-        highlight: "Critical skills shortage. Fast track to Blue Card and residency."
-      },
-      {
-        id: 6, category: "ausbildung", level: "Ausbildung",
-        title: "Ausbildung in Nursing / Healthcare", unis: "Major hospitals across Germany",
-        duration: "3 years", cost: "€1,100 – €1,400/month salary",
-        highlight: "Massive demand. German language support provided during training."
-      },
-      {
-        id: 7, category: "bachelors", level: "Bachelor's",
-        title: "BSc Business & Management", unis: "Frankfurt School, University of Mannheim, ESB Reutlingen",
-        duration: "3 years", cost: "€0 – €7,000/sem",
-        highlight: "Great for students who want corporate careers or to start a business in Europe."
-      },
-      {
-        id: 8, category: "engineering", level: "Master's",
-        title: "MSc Automotive Engineering", unis: "RWTH Aachen, TU Munich, TU Braunschweig",
-        duration: "2 years", cost: "€0 – €2,500/sem",
-        highlight: "Direct access to the heart of German automotive industry."
-      }
-    ];
+    // Data now sourced from imported JSON (Phase 1) — window.__PROGRAMS etc.
+    const programsData = window.__PROGRAMS || [];
 
     // Render program cards
     function renderPrograms(filter = 'all') {
@@ -646,15 +650,22 @@ import HowStep from '../components/HowStep.astro';
       initSmoothAnchorScroll();
       initKeyboardShortcuts();
 
-      // Optional: subtle hero text animation if gsap ready
+      // Cinematic Hero Reveal (Signature #1) — Emil-compliant: 520-650ms, stagger 38ms, only transform + opacity
       setTimeout(() => {
         if (typeof gsap !== 'undefined') {
-          const hero = document.querySelector('section.bg-\\[\\#0A1F44\\] h1');
-          if (hero) {
-            gsap.from(hero, { y: 18, opacity: 0, duration: 1.1, ease: "power3.out", delay: 0.15 });
+          const words = document.querySelectorAll('.cinematic-hero .hero-word');
+          if (words.length) {
+            gsap.from(words, {
+              y: 24,
+              opacity: 0,
+              duration: 0.62,
+              ease: "power3.out",
+              stagger: 0.038,
+              delay: 0.12
+            });
           }
         }
-      }, 80);
+      }, 90);
 
       // Easter egg: Konami-ish for booking (up up down down left right)
       let keys = [];

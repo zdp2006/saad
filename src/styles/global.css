@@ -1,21 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium trustworthy palette - Germany trust + Pakistan warmth */
+  /* Locked "Clarity in Motion" tokens — Refined Editorial Cinematic (Awwwards-level) */
+  /* Germany trust (navy/emerald) + Pakistani warmth (refined gold/sand) + editorial off-whites */
   --navy: #0A1F44;
+  --navy-deep: #08172F;
   --navy-light: #122B5C;
+  --charcoal: #1F2937;
   --emerald: #0D5C63;
   --emerald-dark: #0A464C;
-  --gold: #FFDD00;
-  --gold-dark: #E6C200;
-  --amber: #F4A261;
+  --gold: #E8C547;           /* Refined warm gold (editorial, less pure yellow) */
+  --gold-dark: #C9A63A;
+  --warm-sand: #F5EDE0;      /* Subtle Pakistan warmth accent */
+  --bg: #FAFBFC;             /* Editorial off-white */
+  --surface: #FFFFFF;
   --slate: #F1F5F9;
   --slate-dark: #0F172A;
   --text: #0F172A;
   --text-muted: #475569;
   --border: #E2E8F0;
+  --border-subtle: #CBD5E1;
   --white: #FFFFFF;
   --success: #059669;
+
+  /* Strict Emil Kowalski motion system (only transform + opacity; custom easings; 120-650ms caps) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);      /* Strong UI enter/exit — punchy, responsive */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);  /* On-screen movement */
+  --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);     /* Modals, drawers (iOS-like) */
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1); /* Deliberate editorial reveals */
+
+  /* Durations (strict per Emil framework) */
+  --dur-micro: 140ms;    /* Button press, micro feedback (scale 0.97) */
+  --dur-ui: 200ms;       /* Hovers, small state, chips */
+  --dur-standard: 260ms; /* Filters, dropdowns, cards */
+  --dur-modal: 280ms;    /* Modals, major entrances (max 320ms) */
+  --dur-cinematic: 520ms; /* Scroll reveals, filmic (rare; stagger adds perceived) */
 }
 
 /* Base */
@@ -24,9 +43,9 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--text);
-  background: var(--white);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,31 +60,40 @@ body {
   }
 }
 
-/* Premium Typography */
+/* Editorial Typography — Refined, tight-tracked, cinematic hierarchy (no banned generic fonts) */
 h1, h2, h3, h4 {
-  font-feature-settings: "tnum" on, "lnum" on;
+  font-feature-settings: "tnum" on, "lnum" on, "kern" on;
+  font-variant-numeric: tabular-nums;
 }
 
 .section-label {
-  font-size: 11px;
-  letter-spacing: 3.5px;
+  font-size: 10.5px;
+  letter-spacing: 4px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--emerald);
+  font-feature-settings: "tnum" on;
 }
 
 .heading-xl {
-  font-size: clamp(2.75rem, 7vw, 4.25rem);
-  line-height: 0.92;
+  font-size: clamp(2.85rem, 7.2vw, 4.4rem);
+  line-height: 0.91;
   font-weight: 800;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.048em;
 }
 
 .heading-lg {
-  font-size: clamp(2rem, 4.5vw, 2.85rem);
-  line-height: 0.95;
+  font-size: clamp(2.05rem, 4.6vw, 2.95rem);
+  line-height: 0.93;
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.038em;
+}
+
+/* Editorial body refinement */
+.text-editorial {
+  font-size: 15px;
+  line-height: 1.68;
+  max-width: 68ch;
 }
 
 /* Trustworthy Buttons */
@@ -77,9 +105,18 @@ h1, h2, h3, h4 {
   font-weight: 700;
   letter-spacing: -0.01em;
   border-radius: 9999px;
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Emil-compliant: only transform + opacity, specific duration + easing */
+  transition: transform var(--dur-micro) var(--ease-out), 
+              box-shadow var(--dur-ui) var(--ease-out),
+              background-color var(--dur-ui) ease,
+              color var(--dur-ui) ease;
   cursor: pointer;
   text-decoration: none;
+  will-change: transform;
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-primary {
@@ -101,11 +138,16 @@ h1, h2, h3, h4 {
   padding: 0.875rem 2rem;
   font-size: 0.95rem;
   font-weight: 800;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .btn-gold:hover {
   background: var(--gold-dark);
   transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: scale(0.965);
 }
 
 .btn-outline {
@@ -135,18 +177,19 @@ h1, h2, h3, h4 {
 
 /* Premium Cards */
 .card {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-              box-shadow 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-              border-color 0.2s ease;
+  /* Emil: only transform + opacity + specific box-shadow; no layout props */
+  transition: transform var(--dur-standard) var(--ease-out),
+              box-shadow var(--dur-standard) var(--ease-out),
+              border-color var(--dur-ui) ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
-  border-color: #CBD5E1;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 22px -6px rgb(0 0 0 / 0.06), 0 7px 9px -5px rgb(0 0 0 / 0.05);
+  border-color: var(--border-subtle);
 }
 
 .program-card {
@@ -213,11 +256,12 @@ h1, h2, h3, h4 {
 }
 
 .video-thumb img {
-  transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
+  /* Cinematic editorial: slow deliberate 900ms zoom (rare, purposeful) */
+  transition: transform 900ms var(--ease-cinematic);
 }
 
 .video-thumb:hover img {
-  transform: scale(1.06);
+  transform: scale(1.045);
 }
 
 .play-btn {
@@ -227,7 +271,7 @@ h1, h2, h3, h4 {
   transform: translate(-50%, -50%);
   width: 56px;
   height: 56px;
-  background: rgba(255, 221, 0, 0.95);
+  background: rgba(232, 197, 71, 0.95);
   color: var(--navy);
   border-radius: 9999px;
   display: flex;
@@ -235,12 +279,14 @@ h1, h2, h3, h4 {
   justify-content: center;
   font-size: 1.35rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Emil: transform + opacity only, specific timing */
+  transition: transform var(--dur-standard) var(--ease-out),
+              background-color var(--dur-ui) ease;
 }
 
 .video-thumb:hover .play-btn {
   background: var(--gold);
-  transform: translate(-50%, -50%) scale(1.08);
+  transform: translate(-50%, -50%) scale(1.06);
 }
 
 /* Modal Base - Awwwards level polish */
@@ -267,17 +313,18 @@ h1, h2, h3, h4 {
 
 .modal-content {
   position: relative;
-  background: white;
+  background: var(--surface);
   border-radius: 24px;
   width: 100%;
   max-width: 520px;
   max-height: 92vh;
   overflow: auto;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-  transform: translateY(20px) scale(0.985);
+  /* Emil-compliant: 260ms, ease-soft, only transform + opacity; never 'all' */
+  transform: translateY(18px) scale(0.985);
   opacity: 0;
-  transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1), 
-              opacity 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform var(--dur-standard) var(--ease-soft), 
+              opacity var(--dur-standard) var(--ease-soft);
 }
 
 .modal.open .modal-content {
@@ -315,7 +362,10 @@ h1, h2, h3, h4 {
   border-radius: 14px;
   padding: 0.85rem 1rem;
   font-size: 0.95rem;
-  transition: all 0.15s ease;
+  /* Emil: specific props */
+  transition: border-color var(--dur-ui) ease, 
+              background-color var(--dur-ui) ease,
+              box-shadow var(--dur-ui) var(--ease-out);
 }
 
 .form-input:focus {
@@ -351,11 +401,12 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Emil: transform only, short duration */
+  transition: transform var(--dur-ui) var(--ease-out);
 }
 
 .step:hover .step-number {
-  transform: scale(1.08) rotate(3deg);
+  transform: scale(1.06) rotate(2deg);
 }
 
 @media (min-width: 768px) {
@@ -369,26 +420,65 @@ h1, h2, h3, h4 {
   }
 }
 
-/* Photo/Visual Polish */
+/* Cinematic Editorial Film Treatment (Signature) */
+/* Film grain + vignette + letterbox only on photographic content — perf-safe, pointer-events-none */
 .cinematic-frame {
-  border-radius: 20px;
+  position: relative;
+  border-radius: 18px;
   overflow: hidden;
-  border: 8px solid var(--navy);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.15);
+  border: 1px solid var(--charcoal);
+  box-shadow: 0 12px 18px -4px rgb(0 0 0 / 0.12), 0 4px 6px -3px rgb(0 0 0 / 0.08);
+  background: var(--navy-deep);
+}
+
+.cinematic-frame::before {
+  /* Soft vignette for developed film look */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 48%, transparent 52%, rgba(0,0,0,0.22) 100%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.cinematic-frame::after {
+  /* Micro film grain (subtle, editorial, never on scroll containers) */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 3;
+  border-radius: inherit;
+  opacity: 0.7;
 }
 
 .cinematic-frame img {
-  transition: transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
+  /* Deliberate cinematic zoom — 820ms, transform only */
+  transition: transform 820ms var(--ease-cinematic);
+  display: block;
 }
 
 .cinematic-frame:hover img {
-  transform: scale(1.035);
+  transform: scale(1.028);
 }
 
-/* Mobile Nav */
+/* Optional thin letterbox bars for true editorial film stills (use on featured) */
+.cinematic-frame--letterbox::before {
+  background: 
+    linear-gradient(to bottom, rgba(0,0,0,0.65) 9px, transparent 9px, transparent calc(100% - 9px), rgba(0,0,0,0.65) calc(100% - 9px)),
+    radial-gradient(circle at 50% 48%, transparent 52%, rgba(0,0,0,0.22) 100%);
+}
+
+/* Mobile Nav — Emil-safe (transform only) */
 .mobile-nav {
   transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 340ms var(--ease-soft);
 }
 
 .mobile-nav.open {
@@ -466,3 +556,52 @@ footer a:hover {
   font-size: 0.75rem;
   color: #64748B;
 }
+
+/* =====================================================
+   CINEMATIC EDITORIAL UTILITIES (Awwwards / Emil-compliant)
+   Use sparingly. All transform + opacity only.
+   Film grain/vignette already in .cinematic-frame.
+===================================================== */
+.cinematic-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity var(--dur-cinematic) var(--ease-cinematic),
+              transform var(--dur-cinematic) var(--ease-cinematic);
+}
+
+.cinematic-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger helper classes (35-55ms steps per Emil) — apply via JS or nth-child */
+.cinematic-stagger-1 { transition-delay: 0ms; }
+.cinematic-stagger-2 { transition-delay: 38ms; }
+.cinematic-stagger-3 { transition-delay: 76ms; }
+.cinematic-stagger-4 { transition-delay: 114ms; }
+.cinematic-stagger-5 { transition-delay: 152ms; }
+
+/* Subtle editorial hairline rules */
+.rule-hairline {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
+  opacity: 0.6;
+}
+
+/* Reduced motion hardening (already in base; extended here) */
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-frame img,
+  .cinematic-reveal,
+  .video-thumb img,
+  .card,
+  .btn {
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+  .cinematic-frame::after,
+  .cinematic-frame::before {
+    display: none !important; /* No grain on reduced motion */
+  }
+}
+
+/* Pakistan-first perf note: grain is 3px pattern on pseudo only — cheap GPU */

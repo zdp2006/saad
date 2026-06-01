@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ayesha",
+    "initials": "AK",
+    "name": "Ayesha Khan",
+    "route": "Lahore → TU Darmstadt • MSc Data Science",
+    "quote": "Saad’s video on the blocked account literally saved my application. I was about to send the wrong documents. Got my visa in 34 days after our call.",
+    "tag": "MASTER'S 2025 • FULLY FUNDED"
+  },
+  {
+    "id": "hamza",
+    "initials": "HM",
+    "name": "Hamza Malik",
+    "route": "Karachi → Siemens • Ausbildung Mechatronics",
+    "quote": "I thought Ausbildung was only for Germans. After one call with Danial I had the exact checklist. Started my training in Nuremberg 8 months later.",
+    "tag": "AUSBILDUNG 2024 • PAID TRAINING",
+    "hasVideo": true,
+    "videoId": "auYySwMaaXU",
+    "videoTitle": "How We Came To Germany From Pakistan",
+    "videoUrl": "https://www.youtube.com/watch?v=auYySwMaaXU"
+  },
+  {
+    "id": "sara",
+    "initials": "SZ",
+    "name": "Sara Zafar",
+    "route": "Islamabad → RWTH Aachen • BSc Mechanical Eng",
+    "quote": "My parents were terrified of the cost. After watching 40+ of their videos I realized public universities in Germany are basically free. Changed our entire family’s future.",
+    "tag": "BACHELOR'S 2024 • SCHOLARSHIP WINNER"
+  }
+]
